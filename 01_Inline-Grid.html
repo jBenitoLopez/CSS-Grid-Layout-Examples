@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
+  <title>Inline-Grid</title>
+  <style>
+    .contenedor {
+      display: grid;
+      grid-gap: 12px;
+    }
+
+    /*
+      La propiedad grid-template-columns especifica el número 
+      (y el ancho) de las columnas en un diseño de cuadrícula.
+      
+      Los valores son una lista separada por espacios, 
+      donde cada valor especifica el tamaño de la columna respectiva.
+    */
+    .ej1 {
+      grid-template-columns: 100px 100px 100px;
+    }
+
+    .ej2 {
+      grid-template-columns: auto auto auto;
+    }
+
+    .ej3 {
+      grid-template-columns: auto auto auto auto;
+    }
+
+    .caja {}
+  </style>
+</head>
+
+<body>
+  <h1>Inline-Grid</h1>
+  <h2>Eje. 1 - (grid-template-columns: 100px 100px 100px;)</h2>
+  <div class="contenedor ej1">
+    <div class="caja a">A</div>
+    <div class="caja b">B</div>
+    <div class="caja c">C</div>
+    <div class="caja d">D</div>
+    <div class="caja e">E</div>
+    <div class="caja f">F</div>
+  </div>
+  <h2>Eje. 2 - (grid-template-columns: auto auto auto;)</h2>
+  <div class="contenedor ej2">
+    <div class="caja a">A</div>
+    <div class="caja b">B</div>
+    <div class="caja c">C</div>
+    <div class="caja d">D</div>
+    <div class="caja e">E</div>
+    <div class="caja f">F</div>
+  </div>
+  <h2>Eje. 3 - (grid-template-columns: auto auto auto auto;)</h2>
+  <div class="contenedor ej3">
+    <div class="caja a">A</div>
+    <div class="caja b">B</div>
+    <div class="caja c">C</div>
+    <div class="caja d">D</div>
+    <div class="caja e">E</div>
+    <div class="caja f">F</div>
+  </div>
+</body>
+
+</html>
