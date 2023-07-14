@@ -9,14 +9,17 @@
   --divider-color: #bdbdbd;
 }
 
-html {}
+html {
+  font-family: verdana, sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+}
 
 *,
 *:before,
 *:after {
   box-sizing: border-box;
 }
-
 
 body {
   background-color: whitesmoke;
@@ -26,11 +29,20 @@ body {
 h1 {
   color: var(--primary-text);
   font-size: 2.4rem;
+  margin-bottom: 2rem;
 }
 
 h2 {
   margin-top: 3rem;
   color: var(--secondary-text);
+}
+
+blockquote {
+  color: var(--primary-text);
+  background-color: var(--accent-color);
+  padding: 1px 12px;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
 .contenedor {
