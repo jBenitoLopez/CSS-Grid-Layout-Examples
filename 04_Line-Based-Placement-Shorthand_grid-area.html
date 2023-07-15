@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
+    <title>Line-based placement shorthand - grid-area</title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-gap: 12px;
+        }
+
+        .ej1 {
+            grid-template-columns: 100px 100px 100px;
+        }
+
+        .ej2 {
+            grid-template-columns: auto auto auto auto;
+        }
+
+        .a {
+            grid-area: 1 / 2 / 2 / 3;
+            background-color: red;
+        }
+
+        .b {
+            grid-area: 2 / 2 / 3 / 3;
+            background-color: green;
+        }
+
+        .c {
+            grid-area: 2 / 3 / 3 / 4;
+            background-color: blue;
+        }
+
+        .d {
+            grid-area: 1 / 1 / 2 / 2;
+            background-color: red;
+        }
+
+        .e {
+            grid-area: 2 / 1 / 3 / 2;
+            background-color: green;
+        }
+
+        .f {
+            grid-area: 1 / 3 / 2 / 4;
+            background-color: blue;
+        }
+
+        .a2 {
+            grid-area: 1 / 1 / 2 / 3;
+            background-color: red;
+        }
+
+        .b2 {
+            grid-area: 2 / 1 / 3 / 2;
+            background-color: green;
+        }
+
+        .c2 {
+            grid-area: 2 / 2 / 4 / 3;
+            background-color: blue;
+        }
+
+        .d2 {
+            grid-area: 1 / 3 / 4 / 5;
+            background-color: red;
+        }
+
+        .e2 {
+            grid-area: 3 / 1 / 4 / 2;
+            background-color: green;
+        }
+
+        .f2 {
+            grid-area: 4 / 1 / 5 / 5;
+            background-color: blue;
+        }
+
+
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Line-based placement shorthand (grid-area)</h1>
+
+    <blockquote>
+        <p>"grid-area: row-start / column-start / row-end / column-end;"
+        </p>
+        <p>Donde "row-inicio" representa el número de la row donde comienza el elemento, "column-inicio" representa el
+            número de la column donde comienza el elemento, "row-final" representa el número de la row donde termina el
+            elemento y "column-final" representa el número de la column donde termina el elemento.
+        </p>
+        <p>Por ejemplo:</p>
+        <p>"grid-area: 2 / 1 / 3 / 2;" <br>indica que el elemento ocupará desde la fila 2 hasta la fila 3 y desde la
+            columna
+            1 hasta la columna 2 en la cuadrícula.
+        </p>
+    </blockquote>
+
+    <h2>Eje. 1 - (grid-template-columns: 100px 100px 100px;)</h2>
+    <div class="contenedor ej1">
+        <div class="caja a">A</div>
+        <div class="caja b">B</div>
+        <div class="caja c">C</div>
+        <div class="caja d">D</div>
+        <div class="caja e">E</div>
+        <div class="caja f">F</div>
+    </div>
+
+
+    <div class="extra-content">
+        <img src="images/line-base-placement.png" alt="">
+        <img src="images/line-base-placement-css-shorthand-area.png" alt="">
+    </div>
+    <br>
+    <hr>
+    <br>
+
+    <h2>Eje. 2 - (grid-template-columns: auto auto auto auto;)</h2>
+    <div class="contenedor ej2">
+        <div class="caja a2">A</div>
+        <div class="caja b2">B</div>
+        <div class="caja c2">C</div>
+        <div class="caja d2">D</div>
+        <div class="caja e2">E</div>
+        <div class="caja f2">F</div>
+    </div>
+
+    <div class="extra-content">
+        <img src="images/line-base-placement-shorthand-area-2.png" alt="">
+        <img src="images/line-base-placement-css-shorthand-area-2.png" alt="">
+    </div>
+
+</body>
+
+</html>
