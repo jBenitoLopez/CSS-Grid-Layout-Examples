@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
+    <title>Line-based placement shorthand - grid-area</title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-gap: 12px;
+        }
+
+        .ej1 {
+            grid-template-columns: auto auto auto auto;
+
+            .a {
+                grid-column: 1 / span 2;
+                background-color: red;
+            }
+
+            .b {
+                /* grid-row: 2 / span 1; */
+                background-color: green;
+            }
+
+            .c {
+                grid-row: 2 / span 2;
+                grid-column: 2 / span 1;
+                background-color: blue;
+            }
+
+            .d {
+                grid-row: 1 / span 3;
+                grid-column: 3 / span 2;
+                background-color: coral;
+            }
+
+            .e {
+                /* grid-row: 3 / span 1; */
+                background-color: limegreen;
+            }
+
+            .f {
+                /* grid-row: 4; */
+                grid-column: 1 / span 4;
+                background-color: royalblue;
+            }
+        }
+
+
+        .ej2 {
+            grid-template-columns: auto auto auto auto;
+
+            .a {
+                grid-column: 1 / span 2;
+                background-color: red;
+            }
+
+            .b {
+                /* grid-row: 2 / span 1; */
+                background-color: green;
+            }
+
+            .c {
+                grid-row: 2 / span 2;
+                grid-column: 2 / span 1;
+                background-color: blue;
+            }
+
+            .d {
+                /* grid-row: 1 / span 3;
+                grid-column: 3 / span 2; */
+                background-color: coral;
+            }
+
+            .e {
+                /* grid-row: 3 / span 1; */
+                background-color: limegreen;
+            }
+
+            .f {
+                /* grid-row: 4; */
+                grid-column: 1 / span 4;
+                background-color: royalblue;
+            }
+        }
+
+
+
+
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Line-based placement spanning tracks with the span keyword</h1>
+
+    <blockquote>
+        <p>Este ejemplo crea el mismo diseño usando los span keyword.</p>
+        <p>La propiedad "grid-column: 1 / span 2;" indica que un elemento ocupará la primera columna de una cuadrícula y
+            se extenderá a lo largo de dos columnas adicionales. En otras palabras, el elemento comenzará en la primera
+            columna y abarcará las columnas 1 y 2. Esto permite que el elemento ocupe un espacio más amplio en la
+            cuadrícula, ocupando un total de dos columnas.</p>
+    </blockquote>
+
+    <h2>Eje. 1 - (grid-template-columns: auto auto auto auto;)</h2>
+    <div class="contenedor ej1">
+        <div class="caja a">A</div>
+        <div class="caja b">B</div>
+        <div class="caja c">C</div>
+        <div class="caja d">D</div>
+        <div class="caja e">E</div>
+        <div class="caja f">F</div>
+    </div>
+
+    <div class="extra-content">
+        <img src="images/05_Line-Based-Placement_span-keywords-1.png" alt="">
+        <img src="images/05_Line-Based-Placement_span-keywords-css-1.png" alt="">
+        <ul>
+            <li>Caja A: tiene una regla "grid-column" que establece que el elemento ocupará la primera fila y se
+                extenderá a lo largo de dos columnas.</li>
+            <li>Caja B: no tiene una regla "grid-row" especificada y, por lo tanto, ocupará una fila por defecto.</li>
+            <li>Caja C: tiene una regla "grid-row" que establece que el elemento ocupará desde la segunda fila y se
+                extenderá a lo largo de dos filas adicionales. También tiene una regla "grid-column" que establece que
+                el elemento ocupará la segunda columna y se extenderá a lo largo de una columna adicional</li>
+            <li>Caja D: tiene una regla "grid-row" que establece que el elemento ocupará desde la primera fila y se
+                extenderá a lo largo de tres filas adicionales. También tiene una regla "grid-column" que establece que
+                el elemento ocupará la tercera columna y se extenderá a lo largo de dos columnas adicionales. Esto
+                provoca que empuje las otras cajas.</li>
+            <li>Caja E: no tiene una regla "grid-row" especificada y, por lo tanto, ocupará una fila por defecto. Tiene
+                un fondo de color verde lima.</li>
+        </ul>
+        <p>A la hora de pensar cómo encaja todo hay que entender que las cajas van ocupando su lugar empujando las
+            demás, tanto para la derecha como para abajo</p>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <h2>Eje. 2 - (grid-template-columns: auto auto auto auto;)</h2>
+    <div class="extra-content">
+        <p><b>Este es el mismo ejemplo que el de arriba, salvo que le quitamos los estilos (grid-row/grid-column) a la
+                caja
+                D</b></p>
+        <ul>
+            <li>Podemos observar que D ya no ocumpa las ultimas 2 columnas y tampoco se extiende en 2 filas, lo que
+                proboca
+                que las demas cajas se acomoden</li>
+            <li>B ahora tiene sitio y sube para arriba ya que no le establecimos ninguna fila en concreto</li>
+            <li>C intenta ocupar 2 filas pero no tiene espacio y por eso se ve un pelin mas grande de lo esperado</li>
+            <li>Como F ocupa 4 columna no tiene espacio en la fila superior lo que proboca que caiga y cree una nueva
+                fila
+            </li>
+        </ul>
+        <img src="images/05_Line-Based-Placement_span-keywords-2.png" alt="">
+    </div>
+    <br>
+    <div class="contenedor ej2">
+        <div class="caja a">A</div>
+        <div class="caja b">B</div>
+        <div class="caja c">C</div>
+        <div class="caja d">D</div>
+        <div class="caja e">E</div>
+        <div class="caja f">F</div>
+    </div>
+
+</body>
+
+</html>
