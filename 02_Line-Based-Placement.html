@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
-  <title>line-based placement</title>
+  <title>Line-based placement</title>
   <style>
     .contenedor {
       display: grid;
@@ -14,110 +14,114 @@
 
     .ej1 {
       grid-template-columns: 100px 100px 100px;
+
+      .a {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        background-color: red;
+      }
+
+      .b {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        background-color: green;
+      }
+
+      .c {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        background-color: blue;
+      }
+
+      .d {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        background-color: red;
+      }
+
+      .e {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        background-color: green;
+      }
+
+      .f {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        background-color: blue;
+      }
     }
 
     .ej2 {
       grid-template-columns: auto auto auto auto;
+
+      .a {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        background-color: red;
+      }
+
+      .b {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        background-color: green;
+      }
+
+      .c {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        background-color: blue;
+      }
+
+      .d {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 4;
+        background-color: red;
+      }
+
+
+      .e {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        background-color: green;
+      }
+
+      .f {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        background-color: blue;
+      }
     }
 
 
-    .a {
-      grid-column-start: 2;
-      grid-column-end: 3;
-      grid-row-start: 1;
-      grid-row-end: 2;
-      background-color: red;
-    }
-
-    .b {
-      grid-column-start: 2;
-      grid-column-end: 3;
-      grid-row-start: 2;
-      grid-row-end: 3;
-      background-color: green;
-    }
-
-    .c {
-      grid-column-start: 3;
-      grid-column-end: 4;
-      grid-row-start: 2;
-      grid-row-end: 3;
-      background-color: blue;
-    }
-
-    .d {
-      grid-column-start: 1;
-      grid-column-end: 2;
-      grid-row-start: 1;
-      grid-row-end: 2;
-      background-color: red;
-    }
-
-    .e {
-      grid-column-start: 1;
-      grid-column-end: 2;
-      grid-row-start: 2;
-      grid-row-end: 3;
-      background-color: green;
-    }
-
-    .f {
-      grid-column-start: 3;
-      grid-column-end: 4;
-      grid-row-start: 1;
-      grid-row-end: 2;
-      background-color: blue;
-    }
 
 
-    .a2 {
-      grid-column-start: 1;
-      grid-column-end: 3;
-      grid-row-start: 1;
-      grid-row-end: 2;
-      background-color: red;
-    }
-
-    .b2 {
-      grid-column-start: 1;
-      grid-column-end: 2;
-      grid-row-start: 2;
-      grid-row-end: 3;
-      background-color: green;
-    }
-
-    .c2 {
-      grid-column-start: 2;
-      grid-column-end: 3;
-      grid-row-start: 2;
-      grid-row-end: 3;
-      background-color: blue;
-    }
-
-    .d2 {
-      grid-column-start: 3;
-      grid-column-end: 4;
-      grid-row-start: 1;
-      grid-row-end: 4;
-      background-color: red;
-    }
 
 
-    .e2 {
-      grid-column-start: 1;
-      grid-column-end: 2;
-      grid-row-start: 3;
-      grid-row-end: 4;
-      background-color: green;
-    }
-
-    .f2 {
-      grid-column-start: 1;
-      grid-column-end: 5;
-      grid-row-start: 4;
-      grid-row-end: 5;
-      background-color: blue;
-    }
 
 
     .extra-content {
@@ -133,7 +137,7 @@
 </head>
 
 <body>
-  <h1>Line-Based placement</h1>
+  <h1>Line-based placement</h1>
 
   <blockquote>
     <ul>
@@ -153,6 +157,10 @@
   </blockquote>
 
   <h2>Eje. 1 - (grid-template-columns: 100px 100px 100px;)</h2>
+  <blockquote>
+    <p>Usando la cuadrícula que definí en este ejemplo, estoy posicionando los elementos en mi marcado (seis divs con
+      una clase de "contenedor" y clases de "a" a "f") utilizando propiedades de colocación basadas en filas.</p>
+  </blockquote>
   <div class="contenedor ej1">
     <div class="caja a">A</div>
     <div class="caja b">B</div>
@@ -173,12 +181,12 @@
 
   <h2>Eje. 2 - Line-based placement spanning tracks</h2>
   <div class="contenedor ej2">
-    <div class="caja a2">A</div>
-    <div class="caja b2">B</div>
-    <div class="caja c2">C</div>
-    <div class="caja d2">D</div>
-    <div class="caja e2">E</div>
-    <div class="caja f2">F</div>
+    <div class="caja a">A</div>
+    <div class="caja b">B</div>
+    <div class="caja c">C</div>
+    <div class="caja d">D</div>
+    <div class="caja e">E</div>
+    <div class="caja f">F</div>
   </div>
 
   <div class="extra-content">
@@ -187,7 +195,10 @@
     <img src="images/line-base-placement-2.png" alt="">
     <img src="images/line-base-placement-css-2.png" alt="">
   </div>
-
+  <footer>
+    <a href="https://drafts.csswg.org/css-grid/#line-placement">Line-based Placement: the grid-row-start,
+      grid-column-start, grid-row-end, and grid-column-end properties</a>
+  </footer>
 </body>
 
 </html>
