@@ -48,6 +48,13 @@ blockquote {
   font-size: 14px;
 }
 
+footer {
+  margin-top: 2rem;
+  padding: .4rem;
+  background-color: aliceblue;
+
+}
+
 .contenedor {
   text-align: center;
   background-color: var(--divider-color);
