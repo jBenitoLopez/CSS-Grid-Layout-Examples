@@ -32,10 +32,15 @@
   <h1>Defining a Grid</h1>
 
   <blockquote>
-    <p> La propiedad grid-template-columns especifica el número
-      (y el ancho) de las columnas en un diseño de cuadrícula. </p>
-    <p>Los valores son una lista separada por espacios,
-      donde cada valor especifica el tamaño de la columna respectiva.</p>
+    <p>Para definir una cuadrícula, utiliza "display: grid" o "display: inline-grid" en el <b>elemento padre</b>.</p>
+    <p>Luego puedes
+      crear una cuadrícula utilizando las propiedades "grid-template-columns" y "grid-template-rows".</p>
+    <p>Estoy utilizando la propiedad "grid-gap" para crear un espacio entre mis columnas y filas de 12px. Esta propiedad
+      es un atajo para "grid-column-gap" y "grid-row-gap", por lo que puedes establecer estos valores de forma
+      individual.</p>
+    <p><b>Todos los hijos directos del elemento padre se convierten en elementos de la cuadrícula</b> y el algoritmo de
+      colocación automática los distribuye, uno en cada celda de la cuadrícula, creando filas adicionales según sea
+      necesario.</p>
   </blockquote>
 
   <h2>Eje. 1 - (grid-template-columns: 100px 100px 100px;)</h2>
