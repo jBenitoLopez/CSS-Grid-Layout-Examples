@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
+    <title>No clearing required</title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-gap: 12px;
+        }
+
+        .ej1 {
+            &.contenedor {
+                grid-template-columns: 32% 32% 32%;
+                grid-template-areas:
+                    "sidebar header header"
+                    "sidebar content content"
+                    "footer  footer  footer";
+            }
+
+            .header {
+                grid-area: header;
+                background-color: mediumturquoise;
+            }
+
+            .sidebar {
+                grid-area: sidebar;
+                background-color: yellowgreen;
+            }
+
+            .content {
+                grid-area: content;
+                background-color: tomato;
+
+                .article {
+                    display: grid;
+
+                    grid-template-areas:
+                        "title"
+                        "images"
+                    ;
+
+                    background-color: lightgray;
+                    margin-top: .5rem;
+                    margin-bottom: 2rem;
+
+                    .title {
+                        grid-area: title;
+                        background-color: inherit;
+                        color: slategray;
+                    }
+
+                    .images {
+                        display: flex;
+                        justify-content: space-evenly;
+                        flex-wrap: wrap;
+
+                        .image {
+                            margin: .5rem;
+                            background-color: grey;
+                        }
+                    }
+                }
+            }
+
+            .footer {
+                grid-area: footer;
+                background-color: mediumturquoise;
+            }
+
+            >div {
+                margin: .5rem;
+            }
+        }
+
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>No clearing required</h1>
+
+    <blockquote>
+        <p>Si agrego un footer a mi marcado y defino un grid-area y lo coloco en la cuadrícula usando
+            grid-template-areas, verás que se encuentra debajo de la columna de contenido. No se requiere limpieza
+            (clearing)
+            ya que este pie de página tiene una pista en la cuadrícula y no puede saltar a otra pista.</p>
+        <p>
+            Cada elemento de la cuadrícula está asociado a un área, un conjunto rectangular de celdas de
+            la cuadrícula adyacentes que el elemento de la cuadrícula ocupa. Esta área de cuadrícula define el bloque
+            contenedor para el elemento de la cuadrícula, dentro del cual las propiedades de autoalineación
+            (justify-self y align-self) determinan su posición real. Las celdas que un elemento de la cuadrícula ocupa
+            también influyen en el dimensionamiento de las filas y columnas de la cuadrícula, definidas en la sección 12
+            de Dimensionamiento de la Cuadrícula.</p>
+    </blockquote>
+    <pre><code>    
+        grid-template-columns: 32% 32% 32%;
+        grid-template-areas:
+            "sidebar header header"
+            "sidebar content content"
+            "footer  footer  footer";
+        ;
+    </code></pre>
+    <hr />
+
+    <div class="contenedor ej1">
+        <div class="caja header">Header</div>
+        <div class="caja sidebar">Sidebar</div>
+        <div class="caja content">
+            <div class="caja article">
+                <div class="caja title">Article</div>
+                <div class="images">
+                    <div class="caja image">Image</div>
+                    <div class="caja image">Image</div>
+                    <div class="caja image">Image</div>
+                </div>
+            </div>
+        </div>
+        <div class="caja footer">Footer</div>
+    </div>
+    <div class="extra-content">
+        <img src="images/10_Defining-Grid-Areas.png" alt="">
+        <img src="images/10_Defining-Grid-Areas-css.png" alt="">
+    </div>
+
+    <footer>
+        <a href="https://drafts.csswg.org/css-grid/#placement">Placing Grid Items</a>
+    </footer>
+</body>
+
+</html>
