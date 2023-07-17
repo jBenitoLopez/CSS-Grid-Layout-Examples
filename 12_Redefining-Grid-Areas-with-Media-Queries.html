@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
+    <title>Redefining Grid Areas with Media Queries</title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-gap: 12px;
+        }
+
+        .ej1 {
+            &.contenedor {
+                grid-template-columns: 100% auto;
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "content"
+                    "sidebar-right"
+                    "footer";
+            }
+
+
+
+            .header {
+                grid-area: header;
+                background-color: mediumturquoise;
+            }
+
+            .sidebar {
+                grid-area: sidebar;
+                background-color: yellowgreen;
+            }
+
+            .sidebar-right {
+                grid-area: sidebar-right;
+                background-color: hotpink;
+            }
+
+            .content {
+                grid-area: content;
+                background-color: tomato;
+
+                .article {
+                    display: grid;
+
+                    grid-template-areas:
+                        "title"
+                        "images"
+                    ;
+
+                    background-color: lightgray;
+                    margin-top: .5rem;
+                    margin-bottom: 2rem;
+
+                    .title {
+                        grid-area: title;
+                        background-color: inherit;
+                        color: slategray;
+                    }
+
+                    .images {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        flex-wrap: wrap;
+
+                        .image {
+                            margin: .5rem;
+                            background-color: grey;
+                        }
+                    }
+                }
+            }
+
+            .footer {
+                grid-area: footer;
+                background-color: mediumturquoise;
+            }
+
+            @media only screen and (min-width: 650px) {
+                &.contenedor {
+
+                    grid-template-columns: 25% auto;
+                    grid-template-areas:
+                        "header   header"
+                        "sidebar  content"
+                        "sidebar-right sidebar-right"
+                        "footer   footer";
+
+                    .article {
+                        .images {
+                            flex-direction: column;
+                        }
+                    }
+                }
+            }
+
+            @media only screen and (min-width: 960px) {
+                &.contenedor {
+                    grid-gap: 20px;
+                    grid-template-columns: 140px auto 140px;
+                    grid-template-areas:
+                        "header  header  header"
+                        "sidebar content sidebar-right"
+                        "footer  footer  footer";
+                    max-width: 960px;
+
+                    .article {
+                        .images {
+                            flex-direction: row;
+                        }
+                    }
+                }
+            }
+
+            >div {
+                margin: .5rem;
+            }
+        }
+
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Redefining Grid Areas with Media Queries</h1>
+
+    <blockquote>
+        <p>Podemos redefinir fácilmente la cuadrícula y la posición de los elementos en ella utilizando Media Queries.
+            Defino las Áreas de Cuadrícula como antes, fuera de las Media Queries, y luego redefino las Pistas de
+            Cuadrícula y la posición de los elementos en esa cuadrícula dentro de mis Media Queries.</p>
+    </blockquote>
+    <hr />
+
+    <div class="contenedor ej1">
+        <div class="caja header">Header</div>
+        <div class="caja sidebar">Sidebar</div>
+        <div class="caja sidebar-right">Sidebar</div>
+        <div class="caja content">
+            <div class="caja article">
+                <div class="caja title">Article</div>
+                <div class="images">
+                    <div class="caja image">Image</div>
+                    <div class="caja image">Image</div>
+                    <div class="caja image">Image</div>
+                </div>
+            </div>
+        </div>
+        <div class="caja footer">Footer</div>
+    </div>
+    <pre><code>    
+        &.contenedor {
+            grid-template-columns: 100% auto;
+            grid-template-areas:
+                "header"
+                "sidebar"
+                "content"
+                "sidebar-right"
+                "footer";
+
+                .article {
+                    .images {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                    }
+                }
+        }
+
+        @media only screen and (min-width: 650px) {
+            &.contenedor {
+
+                grid-template-columns: 25% auto;
+                grid-template-areas:
+                    "header   header"
+                    "sidebar  content"
+                    "sidebar-right sidebar-right"
+                    "footer   footer";
+
+                .article {
+                    .images {
+                        flex-direction: column;
+                    }
+                }
+            }
+        }  
+    
+        @media only screen and (min-width: 960px) {
+            &.contenedor {
+                grid-gap: 20px;
+                grid-template-columns: 140px auto 140px;
+                grid-template-areas:
+                    "header  header  header"
+                    "sidebar content sidebar-right"
+                    "footer  footer  footer";
+                max-width: 960px;
+
+                .article {
+                    .images {
+                        flex-direction: row;
+                    }
+                }
+            }
+        }
+    </code></pre>
+    <div class="extra-content">
+        <img src="images/12_Redefining Grid Areas with Media Queries-1.png" alt="">
+        <img src="images/12_Redefining Grid Areas with Media Queries-2.png" alt="">
+        <img src="images/12_Redefining Grid Areas with Media Queries-3.png" alt="">
+    </div>
+
+    <blockquote>
+        <p>Las tres propiedades <code>grid-template-rows</code>, <code>grid-template-columns</code> y
+            <code>grid-template-areas</code> juntas
+            definen la
+            cuadrícula explícita de un contenedor de cuadrícula al especificar sus pistas explícitas de cuadrícula. La
+            cuadrícula final puede terminar siendo más grande debido a los elementos de la cuadrícula colocados fuera de
+            la cuadrícula explícita; en este caso, se crearán pistas implícitas, las cuales se dimensionarán mediante
+            las propiedades <code>grid-auto-rows</code> y <code>grid-auto-columns</code>.
+        </p>
+        <p>El tamaño de la cuadrícula explícita se determina por el número mayor entre el número de
+            <code>rows/columns</code>
+            definidas por <code>grid-template-areas</code> y el número de <code>rows/columns</code> dimensionadas por
+            <code>grid-template-rows/grid-template-columns</code>. Cualquier <code>rows/columns</code> definida por
+            <code>grid-template-areas</code> pero no
+            dimensionada por <code>grid-template-rows/grid-template-columns</code> toma su tamaño de las propiedades
+            <code>grid-auto-rows/grid-auto-columns</code>. Si estas propiedades no definen ningun tracks explícito, la
+            cuadrícula
+            explícita aún contiene una línea de cuadrícula en cada eje.
+        </p>
+        <img src="images/12_Redefining Grid Areas with Media Queries-2-grid.png" alt="">
+        <p>Los índices numéricos en las propiedades de colocación en la cuadrícula se cuentan a partir de los bordes de
+            la cuadrícula explícita. Los índices positivos se cuentan desde el lado de inicio (comenzando desde 1 para
+            la línea explícita más a la izquierda), mientras que los índices negativos se cuentan desde el lado final
+            (comenzando desde -1 para la línea explícita más a la derecha).
+
+            Las propiedades <code>grid</code> y <code>grid-template</code> son formas abreviadas que se pueden utilizar
+            para establecer las tres
+            propiedades explícitas de la cuadrícula
+            <code>(grid-template-rows, grid-template-columns</code> y <code>grid-template-areas)</code> al
+            mismo tiempo. La forma abreviada grid también restablece las propiedades que controlan la cuadrícula
+            implícita, mientras que la propiedad <code>grid-template</code> las deja sin cambios.
+        </p>
+    </blockquote>
+    <footer>
+        <a href="https://drafts.csswg.org/css-grid/#grid-definition">The Explicit Grid</a>
+    </footer>
+</body>
+
+</html>
