@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
+    <title>Defining Grid Areas</title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-gap: 12px;
+        }
+
+        .ej1 {
+            &.contenedor {
+                grid-template-columns: 32% 32% 32%;
+                grid-template-areas:
+                    "header header header"
+                    "sidebar content content"
+                    "....... footer footer"
+                ;
+            }
+
+            .header {
+                grid-area: header;
+                background-color: mediumturquoise;
+            }
+
+            .sidebar {
+                grid-area: sidebar;
+                background-color: yellowgreen;
+            }
+
+            .content {
+                grid-area: content;
+                background-color: tomato;
+
+                .article {
+                    display: grid;
+
+                    grid-template-areas:
+                        "title"
+                        "images"
+                    ;
+
+                    background-color: lightgray;
+                    margin-top: .5rem;
+                    margin-bottom: 2rem;
+
+                    .title {
+                        grid-area: title;
+                        background-color: inherit;
+                        color: slategray;
+                    }
+
+                    .images {
+                        display: flex;
+                        justify-content: space-evenly;
+                        flex-wrap: wrap;
+
+                        .image {
+                            margin: .5rem;
+                            background-color: grey;
+                        }
+                    }
+                }
+            }
+
+            .footer {
+                grid-area: footer;
+                background-color: mediumturquoise;
+            }
+
+            >div {
+                margin: .5rem;
+            }
+        }
+
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Defining Grid Areas</h1>
+
+    <blockquote>
+        <p>Podemos crear áreas con nombre en la cuadrícula para colocar contenido. Para hacer esto, primero asignamos
+            elementos en nuestro marcado a un Área de Cuadrícula utilizando la propiedad grid-area.</p>
+        <p>Luego, podemos usar la propiedad grid-template-areas para describir dónde deben ubicarse estos elementos en
+            la cuadrícula.</p>
+        <p>Repetir el nombre de un área indica que el área abarca esa pista de la cuadrícula. Usar un punto (.) o una
+            secuencia como .... indica una pista vacía. Por ejemplo, el footer deja el primer espacio vacío.</p>
+
+    </blockquote>
+    <pre><code>    
+        grid-template-columns: 32% 32% 32%;
+        grid-template-areas:
+            "header header header"
+            "sidebar content content"
+            "....... footer footer"
+        ;
+    </code></pre>
+    <hr />
+
+    <div class="contenedor ej1">
+        <div class="caja header">Header</div>
+        <div class="caja sidebar">Sidebar</div>
+        <div class="caja content">
+            <div class="caja article">
+                <div class="caja title">Article</div>
+                <div class="images">
+                    <div class="caja image">Image</div>
+                    <div class="caja image">Image</div>
+                    <div class="caja image">Image</div>
+                </div>
+            </div>
+        </div>
+        <div class="caja footer">Footer</div>
+
+    </div>
+    <div class="extra-content">
+        <img src="images/10_Defining-Grid-Areas.png" alt="">
+        <img src="images/10_Defining-Grid-Areas-css.png" alt="">
+    </div>
+
+    <footer>
+        <a href="https://drafts.csswg.org/css-grid/#grid-template-areas-property">Named Areas: the
+            grid-template-areas
+            property</a>
+    </footer>
+</body>
+
+</html>
