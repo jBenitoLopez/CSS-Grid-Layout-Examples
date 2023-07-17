@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
+    <title>Source Independence</title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+
+            grid-gap: 12px;
+
+            padding: 1rem;
+            background-color: #fff;
+            color: #444;
+            width: 600px;
+        }
+
+        .seccion1 {
+            grid-row: 1 / 2;
+        }
+
+        .seccion2 {
+            grid-row: 3 / 4;
+        }
+
+        .seccion3 {
+            grid-row: 5 / 6;
+        }
+
+        .titulo1 {
+            grid-row: 2 / 3;
+        }
+
+        .titulo2 {
+            grid-row: 4 / 5;
+        }
+
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Source Independence</h1>
+    <blockquote>
+        <p>Un aspecto clave en Grid es que el orden de los elementos en el origen no importa, siempre y cuando sean
+            hijos del elemento que se ha declarado como una cuadrícula. En este ejemplo, tengo algún contenido y luego
+            algunos anuncios que he colocado justo al final del origen. Puedo utilizar Grid para mostrar visualmente
+            estos anuncios entre secciones de contenido.</p>
+        <p>Luego, puedo utilizar Media Queries para mostrarlos en otro lugar en un diseño más amplio.
+
+        </p>
+        <p><b>¡Importante! Con fines de accesibilidad, el orden lógico debe establecerse en el origen del documento. No
+                utilices propiedades de Grid para ajustar el orden lógico de tu documento.</b></p>
+    </blockquote>
+
+    <div class="contenedor">
+        <div class="seccion1">
+            <p>El diseño de cuadrícula otorga a los autores un gran poder de reorganización sobre el documento. Sin
+                embargo, esto no sustituye el orden correcto del origen del documento. La propiedad
+                <code>order</code> y la colocación en la cuadrícula no afectan al orden en los medios no
+                visuales (como el habla).
+            </p>
+            <p>De la misma manera, reorganizar los elementos de la cuadrícula visualmente no
+                afecta al orden de recorrido predeterminado de los modos de navegación secuenciales (como el ciclo a
+                través de enlaces, consulte, por ejemplo, tabindex [HTML]).
+            </p>
+        </div>
+        <div class="seccion2">
+            <p>Esto se hace para que los medios no visuales y las aplicaciones de usuario que no utilizan CSS, y que
+                suelen presentar el contenido de forma lineal, puedan depender de un orden lógico del origen del
+                documento, mientras que las características de colocación y ordenamiento del diseño de cuadrícula se
+                utilizan para adaptar la disposición visual. </p>
+            <p>(Dado que la percepción visual es bidimensional y no
+                lineal, el orden visual deseado no siempre es equivalente al orden de lectura deseado).</p>
+        </div>
+        <div class="seccion3">
+            <p>Muchas páginas web tienen una estructura similar en el marcado, con un encabezado en la parte superior,
+                un pie de página en la parte inferior y luego un área de contenido y una o dos columnas adicionales en
+                el medio. En general, es deseable que el contenido aparezca primero en el código fuente de la página,
+                antes de las columnas adicionales. </p>
+            <p>Sin embargo, esto dificulta lograr muchos diseños comunes, como simplemente tener las columnas
+                adicionales a la izquierda y el área de contenido a la derecha. Esto se ha abordado de muchas maneras a
+                lo largo de los años, a menudo bajo el nombre de "Diseño del Santo Grial" cuando hay dos columnas
+                adicionales. </p>
+        </div>
+        <div class="caja titulo1">Nota!</div>
+        <div class="caja titulo2">Example!</div>
+    </div>
+
+    <footer>
+        <a href="https://drafts.csswg.org/css-grid/#order-accessibility">Reordering and Accessibility</a>
+    </footer>
+</body>
+
+</html>
