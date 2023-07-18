@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
+    <title>Implicit named grid lines</title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-gap: 12px;
+            text-align: left;
+        }
+
+        body {
+            margin: 40px;
+        }
+
+        /* ---------------------- */
+
+        .contenedor {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 120px 120px 120px;
+            grid-template-areas:
+                "header  header  header"
+                "sidebar content content";
+            background-color: #fff;
+            color: #444;
+        }
+
+        .content {
+            grid-area: content;
+            background-color: var(--primary-color);
+        }
+
+        .caja {
+            color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            font-size: 150%;
+
+        }
+
+        .header {
+            grid-area: header;
+            background-color: var(--primary-color);
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: cornflowerblue
+        }
+
+
+        .overlay {
+            background-color: rgba(95, 255, 2, 0.5);
+            color: lime;
+            font-size: 2rem;
+            padding: 1rem;
+            z-index: 10;
+            grid-column: content-start / content-end;
+            grid-row: header-start / content-end;
+        }
+
+        /* ---------------------- */
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Implicit named grid lines</h1>
+    <blockquote>
+        <p>Cuando se utilizan áreas con nombre, se crean líneas implícitas con nombre agregando <code>"-start"</code> y
+            <code>"-end"</code> al
+            área con nombre que has definido. Se pueden utilizar de la misma manera que las líneas que has nombrado
+            explícitamente.
+        </p>
+        <p>ver la clase .overlay</p>
+    </blockquote>
+
+    <div class="contenedor">
+        <div class="caja header">Header</div>
+        <div class="caja sidebar">Sidebar</div>
+        <div class="caja content">Content</div>
+        <div class="overlay">overlay</div>
+    </div>
+    <pre><code>
+        .contenedor {
+            display: grid;
+            grid-template-columns: 120px 120px 120px;
+            grid-template-areas:
+                "header  header  header"
+                "sidebar content content";
+            ...
+        }
+
+        .content {
+            grid-area: content;
+        }
+
+        .header {
+            grid-area: header;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+        }
+
+        .overlay {
+            z-index: 10;
+            grid-column: content-start / content-end;
+            grid-row: header-start / content-end;
+        }        
+    </code></pre>
+    <blockquote>
+        <p>La propiedad <code>grid-template-areas</code> genera nombres de líneas asignadas implícitamente a partir de
+            las áreas de
+            cuadrícula con nombre en la plantilla. Para cada área de cuadrícula con nombre <code>"content"</code>, se
+            <b>crean cuatro
+                nombres de líneas asignadas implícitamente</b>: dos llamados <code>"content-start"</code>, que nombran
+            las
+            líneas de inicio
+            <code>row-start</code> y <code>column-start</code> de la área, y dos llamados <code>"content-end"</code>,
+            que nombran las
+            líneas <code>row-end</code> y <code>column-end</code> para el fin de fila y de fin de columna del área.
+        </p>
+        <p>Estos nombres de líneas asignadas implícitamente se comportan como cualquier otro nombre de línea, excepto
+            que no aparecen en el valor de <code>grid-template-rows/grid-template-columns</code>. Incluso si se define
+            un nombre de
+            línea explícitamente asignado con el mismo nombre, los nombres de líneas asignadas implícitamente son
+            simplemente más líneas con el mismo nombre.</p>
+    </blockquote>
+    <footer>
+        <a href="https://drafts.csswg.org/css-grid/#implicit-named-lines">Implicitly-Assigned Line Names</a>
+    </footer>
+</body>
+
+</html>
