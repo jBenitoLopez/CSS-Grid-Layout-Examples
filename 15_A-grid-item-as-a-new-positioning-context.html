@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
+    <title>A grid item as a new positioning context</title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-gap: 12px;
+            text-align: left;
+        }
+
+        body {
+            margin: 40px;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: yellowgreen;
+            color: #fff;
+        }
+
+        .content {
+            grid-area: content;
+            position: relative;
+            background-color: tomato;
+            color: #fff;
+        }
+
+        .header {
+            grid-area: header;
+        }
+
+        .footer {
+            grid-area: footer;
+        }
+
+        .contenedor {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 200px 200px 200px;
+            grid-template-areas:
+                "header  header  header"
+                "sidebar content content"
+                "footer  footer  footer";
+            background-color: #fff;
+            color: #444;
+        }
+
+
+        .caja {
+            border-radius: 5px;
+            padding: 50px;
+            font-size: 150%;
+        }
+
+        .header,
+        .footer {
+            background-color: mediumturquoise;
+        }
+
+        .topleft {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .topright {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .bottomleft {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .bottomright {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>A grid item as a new positioning context</h1>
+    <blockquote>
+        <p>Puedes posicionar elementos de forma absoluta dentro de un área de la cuadrícula. En este ejemplo, se
+            utilizado la propiedad position: relative en la área .content. Ahora se puede posicionar las
+            cuatro imágenes de flechas utilizando posicionamiento absoluto dentro de esa área, y funciona como
+            esperarías.</p>
+    </blockquote>
+
+
+    <div class="contenedor">
+        <div class="caja header">Header</div>
+        <div class="caja sidebar">Sidebar</div>
+        <div class="caja content">Content
+            <br /> The four arrows are inline images inside the content area.
+            <img src="http://gridbyexample.com/examples/code/arrow-top-left.png" alt="top left" class="topleft" />
+            <img src="http://gridbyexample.com/examples/code/arrow-top-right.png" alt="top right" class="topright" />
+            <img src="http://gridbyexample.com/examples/code/arrow-bottom-left.png" alt="bottom left"
+                class="bottomleft" />
+            <img src="http://gridbyexample.com/examples/code/arrow-bottom-right.png" alt="bottom right"
+                class="bottomright" />
+        </div>
+        <div class="caja footer">Footer</div>
+    </div>
+    <pre><code>
+        .contenedor {
+            display: grid;
+            grid-template-columns: 200px 200px 200px;
+            grid-template-areas:
+                "header  header  header"
+                "sidebar content content"
+                "footer  footer  footer";
+        }
+    
+        .content {
+            grid-area: content;
+            position: relative;
+            background-color: tomato;
+            color: #fff;
+        }
+    
+        .topleft {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .topright {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        
+        .bottomleft {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .bottomright {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }       
+        </code></pre>
+    <div class="extra-content">
+        <!-- <img src="images/" alt=""> -->
+    </div>
+    <footer>
+        <a href="https://drafts.csswg.org/css-grid/#abspos">Absolute Positioning</a>
+    </footer>
+</body>
+
+</html>
