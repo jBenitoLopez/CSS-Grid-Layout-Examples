@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
+    <title>Using Order</title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-gap: 12px;
+            width: 100%;
+        }
+
+        body {
+            margin: 40px;
+
+        }
+
+        /* ---------------------- */
+
+        .eje1 {
+
+            .contenedor {
+                grid-template-columns: repeat(6, 100px);
+            }
+
+            .contenedor .caja {
+                background-color: #444;
+                color: #fff;
+                border-radius: 5px;
+                padding: 20px;
+                font-size: 150%;
+                order: 1;
+            }
+
+            .caja:nth-child(even) {
+                background-color: #ccc;
+                color: #000;
+            }
+
+            .caja.caja1 {
+                order: 3;
+                background-color: brown;
+            }
+
+            .caja.caja2 {
+                order: 2;
+                background-color: brown;
+            }
+
+        }
+
+        .eje2 {
+            .contenedor {
+                grid-template-columns: repeat(6, 100px);
+            }
+
+            .caja {
+                background-color: #444;
+                color: #fff;
+                border-radius: 5px;
+                padding: 20px;
+                font-size: 150%;
+            }
+
+            .caja:nth-child(even) {
+                background-color: #ccc;
+                color: #000;
+            }
+
+            .caja.caja1 {
+                order: 1;
+            }
+
+            .caja.caja2 {
+                order: 2;
+            }
+
+            .caja.caja3 {
+                order: 3;
+            }
+
+            .caja.caja4 {
+                order: 4;
+            }
+
+            .caja.caja5 {
+                order: 7;
+                background-color: brown;
+            }
+
+            .caja.caja6 {
+                order: 6;
+            }
+
+            .caja.caja7 {
+                order: 8;
+                background-color: brown;
+            }
+
+            .caja.caja8 {
+                order: 8;
+            }
+
+            .caja.caja9 {
+                order: 9;
+            }
+
+            .caja.caja10 {
+                order: 0;
+                background-color: tomato;
+            }
+
+            .caja.caja11 {
+                order: 11;
+            }
+
+            .caja.caja12 {
+                order: 7;
+                background-color: tomato;
+            }
+        }
+
+        /* ---------------------- */
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Using Order</h1>
+    <h2>Eje. 1</h2>
+    <blockquote>
+        <p>La cuadrícula admite la propiedad order, que también se encuentra en Flexcaja. Si estás posicionando
+            explícitamente elementos de la cuadrícula, entonces el orden afectará el orden de pintado y, por lo tanto,
+            el orden en el que los elementos se apilan cuando no se ha aplicado ningún z-index.</p>
+        <p>Si estás utilizando la colocación automática (auto-placement), entonces la propiedad order afectará cómo se
+            colocan los elementos en la cuadrícula. En este ejemplo, todas las cajas tienen un order de 1, por lo que
+            siguen siendo posicionadas en el orden del DOM. Sin embargo, la caja1 tiene un order de 3 y la caja2 tiene
+            un order de 2. Estas cajas tienen un valor de order más alto, por lo que se posicionan después de todas las
+            cajas con un valor de order de 1.</p>
+    </blockquote>
+
+
+    <div class="eje1">
+        <div class="contenedor">
+            <div class="caja caja1">1</div>
+            <div class="caja caja2">2</div>
+            <div class="caja caja3">3</div>
+            <div class="caja caja4">4</div>
+            <div class="caja caja5">5</div>
+            <div class="caja caja6">6</div>
+            <div class="caja caja7">7</div>
+            <div class="caja caja8">8</div>
+            <div class="caja caja9">9</div>
+            <div class="caja caja10">10</div>
+            <div class="caja caja11">11</div>
+            <div class="caja caja12">12</div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <h2>Eje. 2</h2>
+    <blockquote>
+        <p>Se le asigno el orden correcto a cada caja y después se cambio el orden para la caja10 a la posición 0, la
+            caja5 a la posición
+            7 y la caja12 también a la posición 7. Como la caja12 viene mas tarde que la caja5 y tienen el mismo order
+            la pone a
+            continuación pero antes tuvimos que mover la caja7 al orden 8 </p>
+    </blockquote>
+
+    <div class="eje2">
+        <div class="contenedor">
+            <div class="caja caja1">1</div>
+            <div class="caja caja2">2</div>
+            <div class="caja caja3">3</div>
+            <div class="caja caja4">4</div>
+            <div class="caja caja5">5</div>
+            <div class="caja caja6">6</div>
+            <div class="caja caja7">7</div>
+            <div class="caja caja8">8</div>
+            <div class="caja caja9">9</div>
+            <div class="caja caja10">10</div>
+            <div class="caja caja11">11</div>
+            <div class="caja caja12">12</div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="https://drafts.csswg.org/css-grid/#order-property">Reordered Grid Items: the order property</a>
+    </footer>
+</body>
+
+</html>
