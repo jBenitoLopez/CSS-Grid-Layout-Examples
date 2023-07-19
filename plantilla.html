@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
+
+    <title>Box alignment justify-items</title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-gap: 12px;
+            text-align: left;
+        }
+
+        body {
+            margin: 40px;
+        }
+
+        /* ---------------------- */
+        /* ---------------------- */
+
+        .eje1 {
+            font: 80% Arial, Helvetica, sans-serif;
+
+            .contenedor {}
+
+            .caja {}
+
+
+            /* ---------------------- */
+            .a {
+                background-color: rgba(127, 255, 212, 0.3);
+            }
+
+            .b {
+                background-color: rgba(127, 0, 212, 0.3);
+            }
+
+            .c {
+                background-color: rgba(127, 255, 0, 0.3);
+            }
+
+            .d {
+                background-color: rgba(0, 255, 212, 0.3);
+            }
+
+            .e {
+                background-color: rgba(127, 127, 212, 0.3);
+            }
+
+            .f {
+                background-color: rgba(0, 127, 0, 0.3);
+            }
+
+        }
+
+        /* ---------------------- */
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Titulo</h1>
+    <blockquote>
+        notas
+    </blockquote>
+
+    <div class="eje1">
+
+        <div class="contenedor">
+            <div class="caja a">
+            </div>
+            <div class="caja b">
+            </div>
+            <div class="caja c">
+            </div>
+            <div class="caja d">
+            </div>
+            <div class="caja e">
+            </div>
+            <div class="caja f">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <div class="extra-content">
+        <img src=".png" alt="">
+    </div> -->
+
+    <footer>
+        <!-- <a href="https">recurso</a> -->
+        <div class="footer-buttons">
+            <a class="button" href="../index.html"><img class="invert" src="../images/icons/arrow-left-solid-white.svg"
+                    alt="Volver">Volver al inicio</a>
+        </div>
+    </footer>
+</body>
+
+</html>
