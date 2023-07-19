@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
+
+    <title>minmax() in auto-fill repeating tracks</title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-gap: 12px;
+        }
+
+        body {
+            margin: 40px;
+        }
+
+        /* ---------------------- */
+        /* ---------------------- */
+
+        .eje1 {
+            font: 80% Arial, Helvetica, sans-serif;
+
+            .contenedor {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .caja {
+                background-color: #444;
+                color: #3b3a3a;
+                border-radius: 5px;
+                padding: 20px;
+                font-size: 150%;
+
+            }
+
+            /* ---------------------- */
+            .a {
+                background-color: rgba(0, 204, 255, 0.8);
+            }
+
+            .b {
+                background-color: rgb(255, 134, 22, 0.8);
+            }
+
+            .c {
+                background-color: rgba(127, 255, 0, 0.8);
+            }
+
+            .d {
+                background-color: rgba(0, 255, 212, 0.8);
+            }
+
+            .e {
+                background-color: rgba(127, 0, 212, 0.8);
+            }
+
+            .f {
+                background-color: rgba(245, 6, 205, 0.8);
+            }
+
+            .g {
+                background-color: rgba(0, 204, 255, 0.8);
+            }
+
+            .h {
+                background-color: rgb(255, 134, 22, 0.8);
+            }
+
+            .i {
+                background-color: rgba(127, 255, 0, 0.8);
+            }
+
+            .j {
+                background-color: rgba(0, 255, 212, 0.8);
+            }
+
+            .k {
+                background-color: rgba(127, 0, 212, 0.8);
+            }
+
+            .l {
+                background-color: rgba(245, 6, 205, 0.8);
+            }
+
+        }
+
+        /* ---------------------- */
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>minmax() in auto-fill repeating tracks</h1>
+    <blockquote>
+        <p>En este ejemplo se crea una cuadrícula que contiene tantas pistas de columna de 200 píxeles como
+            quepan en el contenedor, y el espacio restante se comparte por igual entre las columnas. En la función
+            minmax(), el primer valor es el tamaño mínimo que deseo que tengan mis pistas, y el segundo valor es el
+            máximo. </p>
+        <p>Al usar 1fr como valor máximo, el espacio se distribuye de manera equitativa.</p>
+    </blockquote>
+
+    <div class="eje1">
+
+        <div class="contenedor">
+            <div class="caja a">A</div>
+            <div class="caja b">B</div>
+            <div class="caja c">C</div>
+            <div class="caja d">D</div>
+            <div class="caja e">E</div>
+            <div class="caja f">F</div>
+            <div class="caja g">G</div>
+            <div class="caja h">H</div>
+            <div class="caja i">I</div>
+            <div class="caja j">J</div>
+            <div class="caja k">K</div>
+            <div class="caja l">L</div>
+        </div>
+
+    </div>
+
+    <!-- <div class="extra-content">
+        <img src=".png" alt="">
+    </div> -->
+    <blockquote>
+        <p>La función minmax() define un rango de tamaño mayor o igual a "min" y menor o igual a "max". Si el valor de
+            "max" es menor que el valor de "min", entonces el valor de "max" se establecerá como el valor de "min"
+            (esencialmente, obtendríamos minmax(min, min)). Cuando se usa como valor máximo, un valor <flex> establece
+                el factor de flexión de la pista; sin embargo, es inválido como valor mínimo.</p>
+
+    </blockquote>
+    <footer>
+        <a href="https://drafts.csswg.org/css-grid/#valdef-grid-template-columns-minmax">minmax(min, max)</a>
+        <div class="footer-buttons">
+            <a class="button" href="../index.html"><img class="invert" src="../images/icons/arrow-left-solid-white.svg"
+                    alt="Volver">Volver al inicio</a>
+        </div>
+    </footer>
+</body>
+
+</html>
