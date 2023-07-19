@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
+
+    <title>A simple minmax example</title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-gap: 12px;
+            text-align: left;
+        }
+
+        body {
+            margin: 40px;
+        }
+
+        /* ---------------------- */
+        /* ---------------------- */
+
+        .eje1 {
+            font: 80% Arial, Helvetica, sans-serif;
+
+            .contenedor {
+                grid-template-columns: minmax(200px, 1fr) 200px 200px;
+            }
+
+            .caja {
+                background-color: #414040;
+                color: whitesmoke;
+                border-radius: 5px;
+                padding: 20px;
+                font-size: 150%;
+            }
+
+
+            /* ---------------------- */
+            /* .a {
+                background-color: rgba(127, 255, 212, 0.3);
+            }
+
+            .b {
+                background-color: rgba(127, 0, 212, 0.3);
+            }
+
+            .c {
+                background-color: rgba(127, 255, 0, 0.3);
+            }
+
+            .d {
+                background-color: rgba(0, 255, 212, 0.3);
+            }
+
+            .e {
+                background-color: rgba(127, 127, 212, 0.3);
+            }
+
+            .f {
+                background-color: rgba(0, 127, 0, 0.3);
+            } */
+
+        }
+
+        /* ---------------------- */
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>A simple minmax example</h1>
+    <blockquote>
+        <p>En este ejemplo se crea una cuadrícula de tres pistas de columna. La primera pista de columna tiene un
+            ancho mínimo de 200 píxeles y un máximo de 1fr, definido utilizando la notación minmax(). Las otras dos
+            pistas tienen un ancho fijo de 200 píxeles.</p>
+    </blockquote>
+
+    <div class="eje1">
+
+        <div class="contenedor">
+            <div class="caja a">A</div>
+            <div class="caja b">B</div>
+            <div class="caja c">C</div>
+            <div class="caja d">D</div>
+            <div class="caja e">E</div>
+            <div class="caja f">F</div>
+        </div>
+
+    </div>
+
+    <!-- <div class="extra-content">
+        <img src=".png" alt="">
+    </div> -->
+
+    <footer>
+        <a href="https://drafts.csswg.org/css-grid/#valdef-grid-template-columns-minmax">minmax(min, max)</a>
+        <div class="footer-buttons">
+            <a class="button" href="../index.html"><img class="invert" src="../images/icons/arrow-left-solid-white.svg"
+                    alt="Volver">Volver al inicio</a>
+        </div>
+    </footer>
+</body>
+
+</html>
