@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
+
+    <title>The auto-fill keyword with named grid lines
+    </title>
+    <style>
+        .contenedor {
+            display: grid;
+            grid-gap: 12px;
+            text-align: left;
+        }
+
+        body {
+            margin: 40px;
+        }
+
+        /* ---------------------- */
+        /* ---------------------- */
+
+        .eje1 {
+            font: 80% Arial, Helvetica, sans-serif;
+
+            .contenedor {
+                grid-template-columns: repeat(auto-fill, [col] 100px);
+                grid-template-rows: repeat(auto-fill, [row] auto);
+            }
+
+            .caja {
+                background-color: #414040;
+                color: whitesmoke;
+                border-radius: 5px;
+                padding: 20px;
+                font-size: 150%;
+
+            }
+
+            .a {
+                grid-column: col / span 2;
+                grid-row: row;
+            }
+
+            .b {
+                grid-column: col 3 / span 2;
+                grid-row: row;
+            }
+
+            .c {
+                grid-column: col;
+                grid-row: row 2;
+            }
+
+            .d {
+                grid-column: col 2 / span 3;
+                grid-row: row 2;
+            }
+
+            .e {
+                grid-column: col / span 4;
+                grid-row: row 3;
+            }
+
+            /* ---------------------- */
+            /* .a {
+                background-color: rgba(127, 255, 212, 0.5);
+            }
+
+            .b {
+                background-color: rgba(127, 0, 212, 0.5);
+            }
+
+            .c {
+                background-color: rgba(127, 255, 0, 0.5);
+            }
+
+            .d {
+                background-color: rgba(0, 255, 212, 0.5);
+            }
+
+            .e {
+                background-color: rgba(127, 127, 212, 0.5);
+            }
+
+            .f {
+                background-color: rgba(0, 127, 0, 0.5);
+            } */
+
+        }
+
+        /* ---------------------- */
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>The auto-fill keyword with named grid lines
+    </h1>
+    <blockquote>
+        <p>Este ejemplo contiene tantas pistas de columna de 100 píxeles como
+            quepan en el contenedor (en el ejemplo, esto es el viewport) y se están nombrando "col". Luego podemos
+            posicionar los elementos de la cuadrícula utilizando líneas y extensiones con nombres.</p>
+    </blockquote>
+    <pre><code>
+    .contenedor {
+        grid-template-columns: repeat(auto-fill, [col] 100px);
+        grid-template-rows: repeat(auto-fill, [row] auto);
+    }
+    .a {
+        grid-column: col / span 2;
+        grid-row: row;
+    }
+    .b {
+        grid-column: col 3 / span 2;
+        grid-row: row;
+    }
+    .c {
+        grid-column: col;
+        grid-row: row 2;
+    }
+    .d {
+        grid-column: col 2 / span 3;
+        grid-row: row 2;
+    }
+    .e {
+        grid-column: col / span 4;
+        grid-row: row 3;
+    }
+</code></pre>
+    <div class="eje1">
+
+        <div class="contenedor">
+            <div class="caja a">A</div>
+            <div class="caja b">B</div>
+            <div class="caja c">C</div>
+            <div class="caja d">D</div>
+            <div class="caja e">E</div>
+        </div>
+
+    </div>
+
+    <div class="extra-content">
+        <img src="../images/25_The-auto-fill-keyword-with-named-grid-lines.png" alt="">
+    </div>
+
+    <footer>
+        <a href="https://drafts.csswg.org/css-grid/#valdef-grid-template-columns-minmax">minmax(min, max)</a>
+        <div class="footer-buttons">
+            <a class="button" href="../index.html"><img class="invert" src="../images/icons/arrow-left-solid-white.svg"
+                    alt="Volver">Volver al inicio</a>
+        </div>
+    </footer>
+</body>
+
+</html>
