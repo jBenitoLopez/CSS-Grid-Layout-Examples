@@ -40,6 +40,32 @@ h2 {
   color: var(--secondary-text);
 }
 
+.footer-buttons {
+  margin-top: 1rem;
+}
+
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.button img {
+  width: 16px;
+  height: 16px;
+  margin-right: 7px;
+}
+
 blockquote {
   color: var(--primary-text);
   background-color: var(--accent-color);
@@ -53,6 +79,10 @@ footer {
   padding: .4rem;
   background-color: aliceblue;
 
+}
+
+.invert {
+  filter: invert(100%);
 }
 
 .contenedor {
