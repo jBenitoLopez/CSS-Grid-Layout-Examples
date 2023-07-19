@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
+
+    <title>auto-fill vs. auto-fit</title>
+    <style>
+        body {
+            margin: 40px;
+        }
+
+        .eje2 {
+            .contenedor {
+                display: grid;
+                border: 1px solid #000;
+                grid-gap: 10px;
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+
+            .caja {
+                background-color: #444;
+                color: #fff;
+                border-radius: 5px;
+                padding: 20px;
+                font-size: 150%;
+            }
+
+            .caja:nth-child(even) {
+                background: #ff5544db;
+                color: #fff;
+            }
+        }
+
+        .eje3 {
+            .contenedor {
+                display: grid;
+                border: 1px solid #000;
+                grid-gap: 10px;
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+
+            .caja {
+                background-color: #444;
+                color: #fff;
+                border-radius: 5px;
+                padding: 20px;
+                font-size: 150%;
+            }
+
+            .caja:nth-child(even) {
+                background: #ff5544db;
+                color: #fff;
+            }
+        }
+
+
+        /* ---------------------- */
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>auto-fill vs. auto-fit</h1>
+
+    <h2>&lt;auto-fill&gt;</h2>
+    <blockquote>
+        <p>Nos ayuda a decirle al navegador que inserte el número de
+            columnas o filas que sea
+            necesario para rellenar el espacio. Podríamos escribir la siguiente línea de código:</p>
+        <p><code>grid-template-columns: repeat (auto-fill, minmax (150px, 1fr)</code></p>
+        <p>Lo que quiere decir la función auto-fill en este caso es que el navegador puede ubicar el número de columnas
+            que quepan en el ancho, mientras que su ancho mínimo sea de 150px. Entonces, cuando la pantalla cambie de
+            tamaño, el navegador modificará automáticamente el número de columnas que haya según el ancho disponible. El
+            máximo 1fr hace que las columnas siempre tengan el mismo ancho una respecto a la otra.</p>
+    </blockquote>
+    <pre><code>
+        .contenedor {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            ...
+        }
+    </code></pre>
+    <div class="eje2">
+        <div class="contenedor">
+            <div class="caja">1</div>
+            <div class="caja">2</div>
+            <div class="caja">3</div>
+            <div class="caja">4</div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <h2>&lt;auto-fit&gt;</h2>
+    <blockquote>
+        <p>La diferencia entre las funciones auto-fill y auto-fit en CSS Grid es que la
+            primera pondrá el número de columnas que quepan, sin importar el número de elementos a ubicar. Esto quiere
+            decir que, cuando usamos auto-fill, aun si tenemos pocos elementos, este seguirá poniendo columnas aunque
+            estén vacías si el espacio es mayor a la suma de sus anchos.
+        <p>La función auto-fit, en cambio, ajusta las columnas para ocupar todo el espacio disponible, sin dejar espacio
+            restante. Ten presente que esta función respeta los anchos mínimos, al igual que auto-fill.</p>
+    </blockquote>
+    <pre><code>
+        .contenedor {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            ...
+        }
+    </code></pre>
+    <div class="eje3">
+        <div class="contenedor">
+            <div class="caja">1</div>
+            <div class="caja">2</div>
+            <div class="caja">3</div>
+            <div class="caja">4</div>
+        </div>
+    </div>
+    <footer>
+        <a href="https://drafts.csswg.org/css-grid/#auto-repeat">Repeat-to-fill: auto-fill and auto-fit repetitions</a>
+        <div class="footer-buttons">
+            <a class="button" href="../index.html"><img class="invert" src="../images/icons/arrow-left-solid-white.svg"
+                    alt="Volver">Volver al inicio</a>
+        </div>
+    </footer>
+</body>
+
+</html>
