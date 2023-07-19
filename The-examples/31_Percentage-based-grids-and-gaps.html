@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
+
+    <title>Percentage based grids and gaps
+    </title>
+    <style>
+        * {
+            box-sizing: border-caja
+        }
+
+        body {
+            margin: 40px;
+        }
+
+        /* ---------------------- */
+        /* ---------------------- */
+
+        .eje1 {
+            .caja {
+                background-color: #444;
+                color: #fff;
+                border-radius: 5px;
+                padding: 20px;
+                font-size: 150%;
+            }
+
+            .caja:nth-child(even) {
+                background-color: #ccc;
+                color: #000;
+            }
+
+            .contenedor {
+                width: 90%;
+                display: grid;
+                grid-gap: 2%;
+                grid-template-columns: repeat(6, 10%);
+                border: 1px solid #000;
+                margin-bottom: 2em;
+            }
+
+            .with-height {
+                height: 400px;
+            }
+
+        }
+
+        /* ---------------------- */
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Percentage based grids and gaps
+    </h1>
+    <blockquote>
+        <p>Una cuadrícula con un ancho del 90%. Seis pistas de columna de un 10% cada una, y cinco pistas de espacio
+            entre columnas de un 2% cada una.</p>
+        <p>La propiedad grid-gap controla las columnas y filas, pero como la cuadrícula no tiene altura, el espacio
+            entre filas se resuelve a 0.</p>
+        <p>Si le damos a la cuadrícula una altura, hay algo para que el 2% sea un porcentaje de. Así que obtenemos un
+            espacio entre filas.</p>
+    </blockquote>
+
+    <div class="eje1">
+
+        <p>Una cuadrícula con un ancho del 90%. Seis pistas de columna de un 10% cada una y cinco pistas de espacio
+            entre columnas de un 2% cada una.</p>
+
+        <p>La propiedad grid-gap controla las columnas y filas, pero como la cuadrícula no tiene altura, el espacio
+            entre filas se resuelve a 0. Por lo tanto, en este caso, solo se verá el espacio entre columnas, pero no
+            habrá espacio entre filas debido a la falta de altura definida para la cuadrícula.</p>
+
+        <pre><code>
+            .contenedor {
+                display: grid;
+                grid-template-columns: repeat(6, 10%);
+                width: 90%;
+                ...
+            }
+        </code></pre>
+        <div class="contenedor">
+            <div class="caja caja1">1</div>
+            <div class="caja caja2">2</div>
+            <div class="caja">3</div>
+            <div class="caja">4</div>
+            <div class="caja">5</div>
+            <div class="caja">6</div>
+            <div class="caja">7</div>
+            <div class="caja">8</div>
+            <div class="caja">9</div>
+            <div class="caja">10</div>
+            <div class="caja">11</div>
+            <div class="caja">12</div>
+        </div>
+
+        <p>Si le damos a la cuadrícula una altura, hay algo con respecto a lo cual el 2% se calculará como un
+            porcentaje. Por lo tanto, obtendremos un espacio.</p>
+        <pre><code>
+            .contenedor {
+                display: grid;
+                grid-template-columns: repeat(6, 10%);
+                width: 90%;
+                ...
+            }
+
+            .with-height {
+                height: 400px;
+            }
+        </code></pre>
+        <div class="contenedor with-height">
+            <div class="caja caja1">1</div>
+            <div class="caja caja2">2</div>
+            <div class="caja">3</div>
+            <div class="caja">4</div>
+            <div class="caja">5</div>
+            <div class="caja">6</div>
+            <div class="caja">7</div>
+            <div class="caja">8</div>
+            <div class="caja">9</div>
+            <div class="caja">10</div>
+            <div class="caja">11</div>
+            <div class="caja">12</div>
+        </div>
+
+    </div>
+
+    <!-- <div class="extra-content">
+        <img src=".png" alt="">
+    </div> -->
+
+    <footer>
+        <!-- <a href="https">recurso</a> -->
+        <div class="footer-buttons">
+            <a class="button" href="../index.html"><img class="invert" src="../images/icons/arrow-left-solid-white.svg"
+                    alt="Volver">Volver al inicio</a>
+        </div>
+    </footer>
+</body>
+
+</html>
