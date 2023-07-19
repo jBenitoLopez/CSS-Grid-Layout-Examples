@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
+
+    <title>Multiple tracks in a track-list with auto-fill and minmax()</title>
+    <style>
+        body {
+            margin: 40px;
+        }
+
+        .eje1 {
+            .caja {
+                background-color: #444;
+                color: #fff;
+                border-radius: 5px;
+                padding: 20px;
+                font-size: 150%;
+            }
+
+            .caja:nth-child(even) {
+                background-color: #ccc;
+                color: #000;
+            }
+
+            .contenedor {
+                display: grid;
+                border: 1px solid #000;
+                grid-gap: 10px;
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr) minmax(200px, 2fr));
+            }
+        }
+
+
+        /* .eje2 {
+            .caja {
+                background-color: #444;
+                color: #fff;
+                border-radius: 5px;
+                padding: 20px;
+                font-size: 150%;
+            }
+
+            .caja:nth-child(even) {
+                background-color: #ccc;
+                color: #000;
+            }
+
+            .contenedor {
+                display: grid;
+                border: 1px solid #000;
+                grid-gap: 10px;
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr) minmax(200px, 2fr));
+            }
+        } */
+
+
+        /* ---------------------- */
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Multiple tracks in a track-list with auto-fill and minmax()</h1>
+
+    <blockquote>
+        <p>La sintaxis repeat puede tomar una lista de pistas en lugar de un valor único, lo que significa que puedes
+            repetir una lista de pistas más compleja. </p>
+        <p>Puedes utilizar minmax() en esta lista de pistas; </p>
+        <p>
+            Establecemos que el tamaño máximo de mis pistas más grandes sea 2fr, y el de las más pequeñas sea 1fr. Esto
+            significa que las pistas más grandes tendrán asignado más del espacio sobrante.</p>
+    </blockquote>
+    <pre><code>
+
+    </code></pre>
+    <div class="eje1">
+        <div class="contenedor">
+            <div class="caja caja1">1</div>
+            <div class="caja caja2">2</div>
+            <div class="caja">3</div>
+            <div class="caja">4</div>
+            <div class="caja">5</div>
+            <div class="caja">6</div>
+            <div class="caja">7</div>
+            <div class="caja">8</div>
+            <div class="caja">9</div>
+            <div class="caja">10</div>
+            <div class="caja">11</div>
+            <div class="caja">12</div>
+        </div>
+    </div>
+    <!-- <br>
+    <hr>
+    <br>
+    <div class="eje2">
+        <div class="contenedor">
+            <div class="caja caja1">1</div>
+            <div class="caja caja2">2</div>
+            <div class="caja">3</div>
+            <div class="caja">4</div>
+            <div class="caja">5</div>
+            <div class="caja">6</div>
+            <div class="caja">7</div>
+            <div class="caja">8</div>
+            <div class="caja">9</div>
+            <div class="caja">10</div>
+            <div class="caja">11</div>
+            <div class="caja">12</div>
+        </div>
+    </div> -->
+    <footer>
+        <a href="https://drafts.csswg.org/css-grid/#repeat-syntax">Syntax of repeat()</a>
+        <div class="footer-buttons">
+            <a class="button" href="../index.html"><img class="invert" src="../images/icons/arrow-left-solid-white.svg"
+                    alt="Volver">Volver al inicio</a>
+        </div>
+    </footer>
+</body>
+
+</html>
