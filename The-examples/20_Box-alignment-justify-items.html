@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
 
-    <title>Box alignment align-self</title>
+    <title>Box alignment justify-items</title>
     <style>
         .contenedor {
             display: grid;
@@ -25,7 +25,9 @@
             font: 80% Arial, Helvetica, sans-serif;
 
             .contenedor {
+                justify-items: center;
                 background: no-repeat url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/12005/grid.png);
+                grid-gap: 10px;
                 grid-template-columns: repeat(6, 150px);
                 grid-template-rows: repeat(4, 150px);
                 background-color: #fff;
@@ -43,50 +45,31 @@
                 grid-column: 1 / 3;
                 grid-row: 1 / 3;
                 align-self: stretch;
+                background-color: rgba(127, 255, 212, 0.3);
             }
 
             .b {
                 grid-column: 3 / 5;
                 grid-row: 1 / 3;
-                align-self: end;
+                background-color: rgba(127, 0, 212, 0.3);
             }
 
             .c {
                 grid-column: 1 / 3;
                 grid-row: 3 / 6;
-                align-self: start;
+                background-color: rgba(127, 255, 0, 0.3);
             }
 
             .d {
                 grid-column: 3 / 5;
                 grid-row: 3 / 6;
-                align-self: center;
+                background-color: rgba(0, 255, 212, 0.3);
             }
 
             .e {
                 grid-column: 5 / 7;
                 grid-row: 1 / 6;
                 align-self: stretch;
-            }
-
-            /* ---------------------- */
-            .a {
-                background-color: rgba(127, 255, 212, 0.3);
-            }
-
-            .b {
-                background-color: rgba(127, 0, 212, 0.3);
-            }
-
-            .c {
-                background-color: rgba(127, 255, 0, 0.3);
-            }
-
-            .d {
-                background-color: rgba(0, 255, 212, 0.3);
-            }
-
-            .e {
                 background-color: rgba(127, 127, 212, 0.3);
             }
 
@@ -106,51 +89,51 @@
 </head>
 
 <body>
-    <h1>Box alignment align-self</h1>
+    <h1>Box alignment justify-items</h1>
     <blockquote>
-
+        <p>He utilizado una imagen de fondo de cuadrícula para mostrar la cuadrícula en este ejemplo. He definido 4
+            áreas de cuadrícula de igual tamaño a la izquierda que cubren un área cuadrada dentro de tres líneas de fila
+            y columna.</p>
+        <p>Estoy utilizando la propiedad <code>justify-items</code> con un valor de center. Esto centra el contenido de
+            todos los
+            elementos de la cuadrícula.</p>
     </blockquote>
 
-    <pre><code>
-        grid-template-columns: repeat(6, 150px);
-        grid-template-rows: repeat(4, 150px);
-    </code></pre>
     <div class="eje1">
 
         <div class="contenedor">
             <div class="caja a">
                 <p>Esta es la caja A. </p>
-                <code>align-self: stretch</code>
             </div>
             <div class="caja b">
                 <p>Esta es la caja B.</p>
-                <code>align-self: end</code>
             </div>
             <div class="caja c">
                 <p>Esta es la caja C.</p>
-                <code>align-self: start</code>
             </div>
             <div class="caja d">
                 <p>Esta es la caja D.</p>
-                <code>align-self: center</code>
             </div>
             <div class="caja e">
-                <p>Esta es la caja E.</p>
+                <p>Esta es la caja e.</p>
                 <p>Cada una de las cajas a la izquierda tiene un área de cuadrícula de 3 columnas y 3 filas (estamos
                     contando el espacio entre
                     col/row). </p>
-                <p>Por lo tanto, cada una cubre el mismo tamaño de área que la caja A.</p>
-                <p>La propiedad <code>align-self</code> se utiliza para alinear el contenido dentro del área de
-                    cuadrícula. </p>
+                <p>La propiedad align-items se utiliza para alinear el contenido dentro de cada área de cuadrícula.</p>
+                <p>Otros valores de align-items son:</p>
+                <ul>
+                    <li>stretch</li>
+                    <li>start</li>
+                    <li>end</li>
+                    <li>center</li>
+                </ul>
             </div>
         </div>
 
     </div>
-    <div class="extra-content">
-        <img src="images/21_Box-alignment-align-self.png" alt="">
-    </div>
+
     <footer>
-        <a href="https://drafts.csswg.org/css-grid/#column-align">Block-axis Alignment: the align-self and align-items
+        <a href="https://drafts.csswg.org/css-grid/#row-align">Inline-axis Alignment: the justify-self and justify-items
             properties</a>
     </footer>
 </body>

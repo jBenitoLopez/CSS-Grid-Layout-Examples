@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./styles.css" media="screen" />
-    <title>Line-based placement - named lines</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
+    <title>Line-based placement - named lines with spans</title>
     <style>
         .contenedor {
             display: grid;
@@ -14,81 +14,87 @@
         }
 
         .ej1 {
-            grid-template-columns: [colstart-1] 100px [colstart-2] 100px [colstart-3] 100px [colend-3];
-            grid-template-rows: [rowstart-1] auto [rowstart-2] auto [rowstart-3] auto [rowstart-4] auto [rowend-4];
+            grid-template-columns: [col] 100px [col] 100px [col] 100px;
+            grid-template-rows: [row] auto [row] auto [row] auto;
 
             .a {
-                grid-column: colstart-1 / colstart-3;
+                grid-row: row;
+                grid-column: col 1 / span 2;
                 background-color: red;
             }
 
             .b {
-                grid-row: rowstart-2 / rowstart-3;
+                grid-row: 2;
                 background-color: green;
             }
 
             .c {
-                grid-row: rowstart-2 / rowstart-4;
-                grid-column: colstart-2 / colstart-3;
+                grid-row: 2 / span 2;
+                grid-column: 2;
                 background-color: blue;
             }
 
             .d {
-                grid-row: rowstart-1 / rowstart-4;
-                grid-column: colstart-3 / colend-4;
+                grid-row: 1 / span 3;
+                grid-column: 3 / span 2;
                 background-color: coral;
             }
 
             .e {
-                grid-row: rowstart-3 / rowstart-4;
+                grid-row: 3;
+                grid-column: 1;
                 background-color: limegreen;
             }
 
             .f {
-                /* grid-row: rowstart-4; */
-                grid-column: colstart-1 / colend-4;
+                grid-row: 4;
+                grid-column: col / span 4;
                 background-color: royalblue;
             }
         }
 
 
         .ej2 {
-            grid-template-columns: [colstart-1] auto [colstart-2] auto [colstart-3] auto [colstart-4] auto [colend-4];
-            grid-template-rows: [rowstart-1] auto [rowstart-2] auto [rowstart-3] auto [rowstart-4] auto [rowend-3];
+            grid-template-columns: [col] auto [col] auto [col] auto;
+            grid-template-rows: [row] auto [row] auto [row] auto;
 
             .a {
-                grid-column: colstart-1 / colstart-3;
+                grid-row: row;
+                grid-column: col 1 / span 2;
                 background-color: red;
             }
 
             .b {
-                grid-row: rowstart-2 / rowstart-3;
+                grid-row: 2;
                 background-color: green;
             }
 
             .c {
-                grid-row: rowstart-2 / rowstart-4;
-                grid-column: colstart-2 / colstart-3;
+                grid-row: 2 / span 2;
+                grid-column: 2;
                 background-color: blue;
             }
 
             .d {
-                grid-row: rowstart-1 / rowstart-4;
-                grid-column: colstart-3 / colend-4;
+                grid-row: 1 / span 3;
+                grid-column: 3 / span 2;
                 background-color: coral;
             }
 
             .e {
-                grid-row: rowstart-3 / rowstart-4;
+                grid-row: 3;
+                grid-column: 1;
                 background-color: limegreen;
             }
 
             .f {
-                /* grid-row: rowstart-4; */
-                grid-column: colstart-1 / colend-4;
+                grid-row: 4;
+                grid-column: col / span 4;
                 background-color: royalblue;
             }
         }
+
+
 
         .ej3 {
 
@@ -97,28 +103,28 @@
                 padding: 2rem;
             }
 
-            grid-template-rows: [header] auto [aside] auto [footer] auto [rows-end];
-            grid-template-columns: [start aside] 30% [aside-end content] 70% [content-end columns-end end];
+            grid-template-rows: [row] auto [row] auto [row] auto;
+            grid-template-columns: [col] 30% [col] 70%;
 
             >div {
                 margin: .5rem;
             }
 
             .header {
-                grid-row: header;
-                grid-column: start / end;
+                grid-row: row;
+                grid-column: col / span 3;
                 background-color: mediumturquoise;
             }
 
             .sidebar {
-                /* grid-row: aside; */
-                /* grid-column: aside / aside-end; */
+                grid-column: col;
+                grid-row: 2;
                 background-color: yellowgreen;
             }
 
             .content {
-                /* grid-row: aside; */
-                /* grid-column: content / content-end; */
+                grid-column: 2;
+                grid-row: 2;
                 background-color: tomato;
 
                 .article {
@@ -132,14 +138,12 @@
                     margin-bottom: 2rem;
 
                     .title {
-                        grid-row: 1;
                         grid-column: 1 / 4;
                         background-color: inherit;
                         color: slategray;
                     }
 
                     .image {
-                        /* grid-row: 1; */
                         grid-column: auto;
                         margin: .5rem;
                         background-color: grey;
@@ -148,12 +152,11 @@
             }
 
             .footer {
-                grid-row: footer;
-                grid-column: start / end;
+                grid-row: 3;
+                grid-column: col / span 3;
                 background-color: mediumturquoise;
             }
         }
-
 
 
         .extra-content {
@@ -169,41 +172,30 @@
 </head>
 
 <body>
-    <h1>Line-based placement named lines</h1>
+    <h1>Line-based placement named lines width spans</h1>
 
     <blockquote>
 
-        <p>Si bien siempre se puede hacer referencia a las líneas de la cuadrícula por su índice numérico, los nombres
-            de las líneas pueden hacer que las propiedades de ubicación de la cuadrícula sean más fáciles de entender y
-            mantener. Los nombres de línea se pueden asignar explícitamente con las propiedades grid-template-rows y
-            grid-template-columns, o se pueden asignar implícitamente mediante áreas de cuadrícula nombradas con la
-            propiedad grid-template-areas.</p>
-
-        <p> Siempre tienes disponibles los números de línea para usar, incluso si nombras algunas o todas tus líneas.
-        </p>
-
-        <p> El nombre tiene que
-            estar entre corchetes y se permite poner mas que un nombre separado por un espacio.</p>
-
-        <p>En el código a continuación, se puede ver que nombro la primera columna [colstart-1 menu] y a continuacion
-            viene la franja
-            la primera columna con un ancho de 100 píxeles. </p>
-        <code>grid-template-columns: [colstart-1 menu] 100px [colstart-2 menu-fin contenido] 100px [colend-2 contenido-fin]; </code>
         <p>
+            Puedes darles el mismo nombre a las líneas y luego usar la palabra clave "span" para dirigirte a líneas con
+            un nombre específico. </p>
+        <p>Esto es realmente útil si deseas crear una cuadrícula compleja con múltiples pistas de
+            contenido y espacios entre ellas.</p>
 
-            Habiendo nombrado las líneas, puede usar los nombres, en lugar de los
-            números.
-        </p>
-
-
+        <code>
+    grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px  ;
+    <br />.b {
+        grid-column: col 3 / span 2 ;
+      }
+</code>
 
 
     </blockquote>
 
     <h2>Eje. 1</h2>
     <pre><code>
-    grid-template-columns: [colstart-1] 100px [colstart-2] 100px [colstart-3] 100px [colstart-4] 100px [colend-4];
-    grid-template-rows: [rowstart-1] auto [rowstart-2] auto [rowstart-3] auto [rowstart-4] auto [rowend-3];
+    grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px;
+    grid-template-rows: [row] auto [row] auto [row] auto [row] auto;
     </code></pre>
 
     <div class="contenedor ej1">
@@ -217,16 +209,17 @@
 
     <div class="extra-content">
         <p>La distribucion no es uniforme ya que las columnas tienen un ancho fijo de 100px</p>
-        <img src="images/06_Line_Based-Placement_Named-Lines.png" alt="">
-        <img src="images/06_Line_Based-Placement_Named-Lines-css.png" alt="">
+        <img src="images/07_Line_Based-Placement_Named-Lines-with-spans.png" alt="">
+        <img src="images/07_Line_Based-Placement_Named-Lines-with-spans-css.png" alt="">
     </div>
     <br>
     <hr>
     <br>
+
     <h2>Eje. 2 - Columns y Filas en auto</h2>
-    <pre><code>    
-    grid-template-columns: [colstart-1] auto [colstart-2] auto [colstart-3] auto [colstart-4] auto [colend-4];
-    grid-template-rows: [rowstart-1] auto [rowstart-2] auto [rowstart-3] auto [rowstart-4] auto [rowend-3];
+    <pre><code>   
+    grid-template-columns: [col] auto [col] auto [col] auto;
+    grid-template-rows: [row] auto [row] auto [row] auto;
     </code></pre>
 
     <div class="contenedor ej2">
@@ -240,12 +233,14 @@
 
     <div class="extra-content">
         <p>La distribucion ahora se raparte en fragmentos iguales.</p>
-        <img src="images/06_Line_Based-Placement_Named-Lines-2.png" alt="">
-        <img src="images/06_Line_Based-Placement_Named-Lines-css-2.png" alt="">
+        <p>Aparte de que las columnas se pusieron en auto, el css es el mismo</p>
+        <img src="images/07_Line_Based-Placement_Named-Lines-with-spans-2.png" alt="">
     </div>
     <br>
     <hr>
     <br>
+
+
     <h2>Eje. 3 - Basic Webpage Layout</h2>
     <pre><code>    
         grid-template-rows: [header] auto [aside] auto [footer] auto [rows-end];
@@ -273,13 +268,12 @@
     </div>
     <div class="extra-content">
         <p>No tiene responsive, entiendo que habria que añadirle unas media Querys para adaptar el flujo de Grid.</p>
-        <img src="images/06_Line_Based-Placement_Named-Lines_BasicLayout.png" alt="">
-        <img src="images/06_Line_Based-Placement_Named-Lines_BasicLayout-css.png" alt="">
+        <img src="images/07_Line_Based-Placement_Named-Lines-with-spans-layout.png" alt="">
+        <img src="images/07_Line_Based-Placement_Named-Lines-with-spans-layout-css.png" alt="">
     </div>
 
     <footer>
-        <a href="https://drafts.csswg.org/css-grid/#named-lines">Naming Grid Lines: the [&lt;custom-ident&gt;*]
-            syntax</a>
+        <a href="https://drafts.csswg.org/css-grid/#common-uses-named-lines">Named Lines and Spans</a>
     </footer>
 </body>
 

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
+
+    <title>Document</title>
+    <style>
+        .content {
+            color: white;
+            display: grid;
+            grid-gap: 12px;
+            grid-template-columns: 50% 50%;
+            grid-template-areas:
+                "header header"
+                "left right";
+            justify-items: center;
+
+            .header {
+                grid-area: header;
+                background-color: var(--primary-color);
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .left {
+                grid-area: left;
+                align-self: stretch;
+                background-color: ghostwhite;
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .right {
+                grid-area: right;
+                align-self: stretch;
+                background-color: ghostwhite;
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .links {
+                .link {
+                    display: block;
+                    font-size: 1.2rem;
+                    margin-top: .8rem;
+                    margin-left: 1rem;
+                }
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="header">
+            <h1>Aprende CSS Grid Layout</h1>
+        </div>
+        <div class="left">
+            <h2>The examples</h2>
+            <div class="links">
+                <a class="link" href="./The-examples/01_Defining-Grid.html">01 Defining a Grid</a>
+                <a class="link" href="./The-examples/02_Line-Based-Placement.html">02 Line-based placement</a>
+                <a class="link" href="./The-examples/03_Line-Based-Placement-Shorthand.html">03 Line-based placement
+                    shorthand (grid-row and grid-column)</a>
+                <a class="link" href="./The-examples/04_Line-Based-Placement-Shorthand_grid-area.html">04 Line-based
+                    placement shorthand - grid-area</a>
+                <a class="link" href="./The-examples/04_Line-based-placement-spanning-tracks.html">04 Line-based
+                    placement spanning tracks</a>
+                <a class="link" href="./The-examples/05_Line-Based-Placement_span-keywords.html">05 Line-based placement
+                    spanning tracks with the span keyword</a>
+                <a class="link" href="./The-examples/06_Line_Based-Placement_Named-Lines.html">06 Line-based placement
+                    named lines</a>
+                <a class="link" href="./The-examples/07_Line_Based-Placement_Named-Lines-with-spans.html">07 Line-based
+                    placement named lines width spans</a>
+                <a class="link" href="./The-examples/08_Using_repeat_notation.html">08 Line-based placement shorthand
+                    (grid-area)</a>
+                <a class="link" href="./The-examples/09_Explicit_and_Implicit_Grid.html">09 Explicit and Implicit
+                    Grid</a>
+                <a class="link" href="./The-examples/10_Defining-Grid-Areas.html">10 Defining Grid Areas</a>
+                <a class="link" href="./The-examples/11_No-clearing-required.html">11 No clearing required</a>
+                <a class="link" href="./The-examples/12_Redefining-Grid-Areas-with-Media-Queries.html">12 Redefining
+                    Grid Areas with Media Queries</a>
+                <a class="link" href="./The-examples/13_Source Independence.html">13 Source Independence</a>
+                <a class="link" href="./The-examples/14_Layering-items.html">14 Source Independence</a>
+                <a class="link" href="./The-examples/15_A-grid-item-as-a-new-positioning-context.html">15 A grid item as
+                    a new positioning context</a>
+                <a class="link" href="./The-examples/16_Nested Grid.html">16 Nested Grid</a>
+                <a class="link" href="./The-examples/17_Implicit-named-grid-lines.html">17 Implicit named grid lines</a>
+                <a class="link" href="./The-examples/18_Using-Order.html">18 Using Order</a>
+                <a class="link" href="./The-examples/19_Box-alignment-align-items.html">19 Box alignment align-items</a>
+                <a class="link" href="./The-examples/20_Box-alignment-justify-items.html">20 Box alignment
+                    justify-items</a>
+                <a class="link" href="./The-examples/21_Box-alignment-align-self.html">21 Box alignment align-self</a>
+                <a class="link" href="./The-examples/22_Box-alignment-justify-self.html">22 Box alignment
+                    justify-self</a>
+                <a class="link" href="./The-examples/23">23 </a>
+                <a class="link" href="./The-examples/24">24 </a>
+                <a class="link" href="./The-examples/25">25 </a>
+                <a class="link" href="./The-examples/26">26 </a>
+                <a class="link" href="./The-examples/27">27 </a>
+            </div>
+        </div>
+        <div class="right">
+            <h2>CSS Grid Level 2 Examples</h2>
+            <div class="links">
+                <a class="link" href="#">Link 1</a>
+                <a class="link" href="#">Link 1</a>
+                <a class="link" href="#">Link 1</a>
+                <a class="link" href="#">Link 1</a>
+                <a class="link" href="#">Link 1</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
