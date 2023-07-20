@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
+
+    <title>Line names on the parent are passed into the subgrid
+    </title>
+    <style>
+        body {
+            margin: 40px;
+        }
+
+        /* ---------------------- */
+        /* ---------------------- */
+
+        .eje1 {
+            .contenedor {
+                display: grid;
+                gap: 10px;
+                grid-template-columns: [main-1] 150px [main-2] 100px [main-3] 150px [main-4] 100px [main-5];
+                grid-template-rows: repeat(3, minmax(100px, auto));
+                background-color: #fff;
+                color: #444;
+            }
+
+            .caja {
+                background-color: #444;
+                color: #fff;
+                border-radius: 5px;
+                padding: 20px;
+                font-size: 150%;
+
+            }
+
+            .caja .caja {
+                background-color: #ccc;
+                color: #444;
+            }
+
+            .a {
+                grid-column: main-1 / main-3;
+            }
+
+            .b {
+                grid-column: main-4;
+            }
+
+        }
+
+        /* ---------------------- */
+        .extra-content {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            margin-top: 2rem;
+
+            & img {
+                margin: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Line names on the parent are passed into the subgrid
+    </h1>
+    <blockquote>
+        <p>Si defines nombres de líneas en tu cuadrícula principal, estas líneas serán heredadas por el elemento
+            subcuadrícula. Esto significa que puedes posicionar elementos nietos utilizando los nombres de líneas de
+            cuadrícula definidos en la cuadrícula principal. Es decir, los nombres de líneas definidos en la cuadrícula
+            principal también estarán disponibles en la subcuadrícula para posicionar elementos de manera más precisa.
+        </p>
+        <p><b>Esto no esta funcionando bien, revisar</b></p>
+
+    </blockquote>
+
+    <div class="eje1">
+
+        <div class="contenedor">
+            <div class="caja a">A</div>
+            <div class="caja b">B</div>
+            <div class="caja c">C</div>
+            <div class="caja d">
+                <div class="caja e">E</div>
+                <div class="caja f">F</div>
+                <div class="caja g">G</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <div class="extra-content">
+        <img src=".png" alt="">
+    </div> -->
+
+    <footer>
+        <!-- <a href="https">recurso</a> -->
+        <div class="footer-buttons">
+            <a class="button" href="../index.html"><img class="invert" src="../images/icons/arrow-left-solid-white.svg"
+                    alt="Volver">Volver al inicio</a>
+        </div>
+    </footer>
+</body>
+
+</html>
