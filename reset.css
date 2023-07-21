@@ -1,0 +1,48 @@
+html {
+    box-sizing: border-box;
+    /* https://www.aleksandrhovhannisyan.com/blog/62-5-percent-font-size-trick/ */
+    /* font-size: 16px; */
+    /* 1rem = 10px
+   62.5*16px(base) = 10px 
+   will work when user change browser font
+   */
+    /* font-size: 62.5%; */
+    font-size: 6.25%;
+}
+
+body {
+    /* 16px */
+    /* font-size: 1.6rem; */
+    font-size: 16rem;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
