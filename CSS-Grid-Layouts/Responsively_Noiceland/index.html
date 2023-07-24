@@ -12,6 +12,8 @@
 </head>
 
 <body>
+
+    <!-- #region HEADER -->
     <header class="navigation">
         <div class="navegation-container">
             <a class="navegation-link" href="#">
@@ -24,10 +26,14 @@
                 </svg>
             </nav>
         </div>
-
     </header>
+    <!-- #endregion HEADER -->
+
+
+    <!-- #region CONTENT -->
     <main class="content">
-        <!-- Top Post -->
+
+        <!-- #region Top-Post -->
         <div class="post-item top-post ">
             <div class="post-container">
                 <a class="post-image-container" href="#">
@@ -49,8 +55,9 @@
                 </div>
             </div>
         </div>
+        <!-- #endregion Top-Post -->
 
-        <!-- Posts -->
+        <!-- #region Posts-List -->
         <div class="posts-container">
 
             <div class="post-item">
@@ -170,6 +177,7 @@
                 </div>
             </div>
         </div>
+        <!-- #endregion Posts-List -->
 
         <!-- separator -->
         <div class="separator section pt-2 pb-2">
@@ -178,7 +186,7 @@
             </div>
         </div>
 
-        <!-- Latest Posts -->
+        <!-- #region Latest Posts -->
         <div class="post-wrapper">
             <div class="posts-container latest-post">
 
@@ -351,6 +359,7 @@
                 <a class="button" href="#">view all latest posts</a>
             </div>
         </div>
+        <!-- #endregion Latest Posts -->
 
         <!-- separator -->
         <div class="separator section pt-2 pb-2">
@@ -359,8 +368,7 @@
             </div>
         </div>
 
-
-        <!-- FEATURED POSTS -->
+        <!-- #region Featured-Posts -->
         <div class="post-wrapper">
             <div class="posts-container latest-post">
 
@@ -445,34 +453,57 @@
             </div>
 
         </div>
+        <!-- #endregion Featured-Posts -->
 
     </main>
-    <footer class="footer pt-2 pb-2">
+    <!-- #endregion CONTENT -->
+
+
+    <!-- #region FOOTER -->
+    <footer class="footer mt-2 pt-2 pb-2">
         <div class="footer-container">
+
+            <!-- ALL RIGHTS RESERVED -->
             <div class="footer-rights">
-                <a class="footer-link" href="#"><img src="./images/noiceland_logo_transparent.svg" alt="NOICELAND"
-                        class="image-logo">
-                </a>
+                <div class="footer-logo-container">
+                    <a class="footer-logo" href="#">
+                        <img src="./images/noiceland_logo_transparent.svg" alt="NOICELAND" class="image-logo">
+                    </a>
+                </div>
                 <div class="footer-small-text">© 2018 Noiceland™, all rights reserved</div>
             </div>
-            <!-- separator -->
+
+            <!-- SEPARATOR -->
             <div class="separator pt-2 pb-2">
                 <div class="separator-container">
-                    <div class="separator-line dark"></div>
+                    <div class="separator-line"></div>
                 </div>
             </div>
 
+            <!-- FORM SUBSCRIBE TO NEWSLETTER -->
             <div class="form-subscribe">
                 <div class="form-title">Subscribe to newsletter</div>
                 <form action="">
-                    <input class="input" type="email" placeholder="Email address">
-                    <input class="button" type="button" value="Send">
-                    <div class="dropdown">
-                        <div class="placeholder">Category</div>
+                    <div class="form-row-email">
+                        <input class="text-field" type="email" placeholder="Email address">
+                        <input class="submit-button" type="button" value="Send">
                     </div>
+                    <div class="form-row-category">
+                        <div class="dropdown">
+                            <div class="dropdown-field">
+                                Category
+                                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="20"
+                                        viewBox="0 -960 960 960" width="20">
+                                        <path d="M480-333 240-573l51-51 189 189 189-189 51 51-240 240Z" />
+                                    </svg></div>
+                            </div>
+                        </div>
+                    </div>
+
                 </form>
             </div>
 
+            <!-- FOOTER NAVBAR -->
             <div class="footer-menu">
                 <div class="menu menu-information">
                     <div class="menu-title">Information</div>
@@ -491,11 +522,21 @@
                         <a href="#">twitter</a>
                     </div>
                 </div>
+
+                <div class="menu menu-template">
+                    <div class="menu-title">Template</div>
+                    <div class="menu-links">
+                        <a href="#">Image License Info</a>
+                        <a href="#">Powered by Webflow</a>
+                    </div>
+                </div>
             </div>
 
 
         </div>
     </footer>
+    <!-- #endregion FOOTER -->
+
 </body>
 
 </html>
