@@ -4,7 +4,13 @@ icons: https://fonts.google.com/icons
 
 Mobiles First
 1) 360x640
+TODO: el formulario no ocupa todo el ancho
+2) 479x??? 
+TODO: Footer `All rights` en una Fila 
+
 */
+
+
 
 /* #region FONTS */
 @font-face {
@@ -300,26 +306,25 @@ a {
 
     /* ALL RIGHTS RESERVED  */
     .footer-rights {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        align-items: center;
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 16rem;
+
         height: 100%;
         max-width: 1200rem;
         margin-top: 18rem;
         margin-bottom: 18rem;
-        gap: 24rem;
 
         .footer-logo-container {
-            grid-column-start: 1;
-            grid-column-end: 3;
-            justify-self: self-start;
+            /* grid-column-start: 1;
+            grid-column-end: 3; */
             padding-right: 15rem;
         }
 
         .footer-small-text {
-            grid-column-start: 1;
-            grid-column-end: 3;
-            justify-self: flex-start;
+            /* grid-column-start: 1;
+            grid-column-end: 3; */
         }
     }
 
@@ -349,8 +354,9 @@ a {
         margin-top: 24rem;
 
         .form-row-email {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
             margin-top: 24rem;
             margin-bottom: 24rem;
         }
@@ -363,6 +369,8 @@ a {
         }
 
         .text-field {
+            width: 100%;
+
             color: #999;
             border: 0;
 
@@ -405,15 +413,17 @@ a {
         }
 
         .dropdown {
+            display: flex;
+            flex-direction: row;
 
+
+            width: 100%;
             background-color: #fff;
 
             .dropdown-field {
-                display: grid;
-                grid-template-columns: 7fr 1fr;
-                grid-template-rows: 1fr;
+                display: flex;
+                justify-content: space-between;
                 align-items: center;
-
                 color: #999;
                 width: 100%;
                 height: 48rem;
@@ -428,20 +438,22 @@ a {
                 line-height: 24rem;
                 text-transform: none;
                 letter-spacing: normal;
-
-                .icon {
-                    justify-self: flex-end;
-                    padding-right: 10rem;
-                    padding-top: 8rem;
-
-                    & svg {
-
-                        fill: #999;
-                        /* stroke: red; */
-                    }
-                }
-
             }
+
+            .icon {
+                /* display: flex;
+                justify-content: flex-end;
+                align-items: center; */
+                padding-right: 10rem;
+                padding-top: 8rem;
+
+                & svg {
+
+                    fill: #999;
+                    /* stroke: red; */
+                }
+            }
+
         }
     }
 
@@ -480,3 +492,19 @@ a {
 }
 
 /* #endregion FOOTER */
+
+
+/* #region FOOTER@mediaQuery */
+@media screen and (min-width: 479px) {
+    .footer {}
+
+    /* ALL RIGHTS RESERVED  */
+    .footer-rights {
+        .footer-logo-container {}
+
+        .footer-small-text {}
+    }
+
+}
+
+/* #endregion FOOTER@mediaQuery */
