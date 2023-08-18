@@ -4,9 +4,9 @@ icons: https://fonts.google.com/icons
 
 Mobiles First
 1) 360x640
-TODO: el formulario no ocupa todo el ancho
-2) 479x??? 
-TODO: Footer `All rights` en una Fila 
+
+2) 479x
+
 
 */
 
@@ -36,6 +36,16 @@ body {
     font-size: 14rem;
     line-height: 20rem;
     color: #000;
+
+}
+
+.main {
+    max-width: 1276px;
+    /*1276*/
+    justify-content: center;
+    margin: auto;
+    /* width: 50%; */
+
 }
 
 a {
@@ -59,6 +69,7 @@ a {
         color: #000;
     }
 }
+
 
 .text-underline:hover {
     text-decoration: underline !important;
@@ -108,11 +119,11 @@ a {
     top: 0;
     left: 0;
     right: 0;
-    height: 68rem;
+    /* height: 68rem; */
+    height: 90rem;
     padding-right: 30rem;
     padding-left: 30rem;
     border-bottom: 1rem solid #e6e6e6;
-
 
     border-bottom: 1rem solid #e6e6e6;
     background-color: #fff;
@@ -121,12 +132,14 @@ a {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr;
+        gap: 20rem;
+
         align-items: center;
         justify-content: space-between;
         height: 100%;
-        max-width: 1200rem;
-
-
+        max-width: 1216rem;
+        /* max-width: 1276px; */
+        margin: auto;
 
         .navegation-link {
             font-family: sans-serif;
@@ -134,17 +147,49 @@ a {
             cursor: pointer;
         }
 
-        .navegation-menu {
-            justify-self: end;
-            cursor: pointer;
-            /* background-color: azure; */
-            /* color: red; */
+        .top-navegation {
+            display: flex;
+            justify-content: end;
 
-            & svg {
-                /* fill: red; */
-                /* stroke: red; */
-                /*fill: relleno,stroke: contorno, */
+            .navegation-burger-menu {
+                cursor: pointer;
+                /* background-color: azure; */
+                /* color: red; */
 
+
+                & svg {
+                    /* fill: red; */
+                    /* stroke: red; */
+                    /*fill: relleno,stroke: contorno, */
+                }
+            }
+
+            .navegation-menu {
+                /* display: none; */
+                visibility: hidden;
+                display: flex;
+                justify-content: center;
+                position: absolute;
+                width: 100%;
+                padding-top: 60rem;
+                padding-bottom: 10rem;
+                margin-top: 25rem;
+                background-color: white;
+
+                font-family: 'Libre Franklin', sans-serif;
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 600;
+                color: #000;
+            }
+
+            .navegation-menu.isOpen {
+                visibility: visible;
+
+
+                & div {
+                    margin: 30rem;
+                }
             }
         }
     }
@@ -201,7 +246,8 @@ a {
 
 
 .top-post {
-    margin-top: 76rem;
+    /* margin-top: 76rem; */
+    margin-top: 110rem;
 }
 
 .post-item {
@@ -301,7 +347,6 @@ a {
         line-height: 12rem;
         font-weight: 600;
         letter-spacing: 1rem;
-        text-transform: uppercase;
     }
 
     /* ALL RIGHTS RESERVED  */
@@ -319,12 +364,12 @@ a {
         .footer-logo-container {
             /* grid-column-start: 1;
             grid-column-end: 3; */
-            padding-right: 15rem;
         }
 
         .footer-small-text {
             /* grid-column-start: 1;
             grid-column-end: 3; */
+            text-transform: uppercase;
         }
     }
 
@@ -353,108 +398,138 @@ a {
         width: 100%;
         margin-top: 24rem;
 
-        .form-row-email {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            margin-top: 24rem;
-            margin-bottom: 24rem;
-        }
 
-        .form-row-category {
+        .form {
             display: grid;
-            grid-template-columns: 1fr;
-            margin-top: 24rem;
-            margin-bottom: 24rem;
-        }
-
-        .text-field {
-            width: 100%;
-
-            color: #999;
-            border: 0;
-
-            margin-bottom: 0rem;
-            padding-right: 15rem;
-            padding-left: 15rem;
-
-            font-family: 'Libre Franklin', sans-serif;
-            height: 48rem;
-            font-size: 14rem;
-            line-height: 24rem;
-            text-transform: none;
-        }
-
-        .submit-button {
-            cursor: pointer;
-
-            text-transform: uppercase;
-            text-decoration: none;
-            text-align: center;
-
-            font-weight: 600;
-            font-size: 10rem;
-            font-family: 'Libre Franklin', sans-serif;
-            letter-spacing: 1rem;
-            line-height: 12rem;
-
-            width: 100rem;
-            height: 48rem;
-
-            color: #fff;
-            background-color: #000;
-
-            border: 1rem rgba(153, 153, 153, 0.0) solid;
-            border-radius: 0;
-
-            &:hover {
-                border: 1rem rgba(153, 153, 153, 0.2) solid;
-            }
-        }
-
-        .dropdown {
-            display: flex;
-            flex-direction: row;
+            grid-template:
+                "email"
+                "category";
 
 
-            width: 100%;
-            background-color: #fff;
+            .form-subscribe-container {
+                grid-area: email;
 
-            .dropdown-field {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                color: #999;
-                width: 100%;
-                height: 48rem;
+                .form-title {
+                    text-transform: uppercase;
+                }
 
-                margin-right: auto;
-                margin-left: auto;
-                padding-left: 15rem;
+                .form-row-email {
 
-                font-family: 'Libre Franklin', sans-serif;
-                font-weight: 400;
-                font-size: 14rem;
-                line-height: 24rem;
-                text-transform: none;
-                letter-spacing: normal;
+                    display: flex;
+                    flex-direction: row;
+                    /* justify-content: flex-end; */
+                    margin-top: 24rem;
+                    margin-bottom: 24rem;
+
+                    .text-field {
+                        width: 100%;
+
+                        color: #999;
+                        border: 0;
+
+                        margin-bottom: 0rem;
+                        padding-right: 15rem;
+                        padding-left: 15rem;
+
+                        font-family: 'Libre Franklin', sans-serif;
+                        height: 48rem;
+                        font-size: 14rem;
+                        line-height: 24rem;
+                        text-transform: none;
+                    }
+
+                    .submit-button {
+                        grid-area: category;
+                        cursor: pointer;
+
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        text-align: center;
+
+                        font-weight: 600;
+                        font-size: 10rem;
+                        font-family: 'Libre Franklin', sans-serif;
+                        letter-spacing: 1rem;
+                        line-height: 12rem;
+
+                        width: 100rem;
+                        height: 48rem;
+
+                        color: #fff;
+                        background-color: #000;
+
+                        border: 1rem rgba(153, 153, 153, 0.0) solid;
+                        border-radius: 0;
+
+                        &:hover {
+                            border: 1rem rgba(153, 153, 153, 0.2) solid;
+                        }
+                    }
+
+                }
+
             }
 
-            .icon {
-                /* display: flex;
-                justify-content: flex-end;
-                align-items: center; */
-                padding-right: 10rem;
-                padding-top: 8rem;
+            .form-row-category {
+                display: grid;
+                grid-template-columns: 1fr;
+                margin-top: 24rem;
+                margin-bottom: 24rem;
 
-                & svg {
+                .category-dropdown {
+                    display: flex;
+                    flex-direction: row;
 
-                    fill: #999;
-                    /* stroke: red; */
+
+                    width: 100%;
+                    background-color: #fff;
+
+                    .dropdown-field {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        color: #999;
+                        width: 100%;
+                        height: 48rem;
+
+                        margin-right: auto;
+                        margin-left: auto;
+                        padding-left: 15rem;
+
+                        font-family: 'Libre Franklin', sans-serif;
+                        font-weight: 400;
+                        font-size: 14rem;
+                        line-height: 24rem;
+                        text-transform: none;
+                        letter-spacing: normal;
+                    }
+
+                    .icon {
+                        /* display: flex;
+                        justify-content: flex-end;
+                        align-items: center; */
+                        padding-right: 10rem;
+                        padding-top: 8rem;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+
+                        & svg {
+
+                            fill: #999;
+                            /* stroke: red; */
+                        }
+                    }
+
+                }
+
+                .category-list {
+                    display: none;
                 }
             }
-
         }
+
     }
 
     /* FOOTER NAVBAR  */
@@ -470,8 +545,8 @@ a {
         .menu-title {
             margin-top: 24rem;
             margin-bottom: 18rem;
-
-
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .menu-links {
@@ -491,11 +566,114 @@ a {
     }
 }
 
+
+/* Categories Full List */
+#category-dropdown-list {
+    display: none;
+
+    &.isOpen {
+        display: inline-block;
+    }
+
+    &:hover {}
+}
+
+.dropdown-category-list {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    background-color: #fff;
+
+    color: #999;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 400;
+    font-size: 14rem;
+    line-height: 24rem;
+    text-transform: none;
+    letter-spacing: normal;
+
+    .dropdown-list-container {
+        margin: 5rem 25rem;
+
+        .dropdown-list {
+            border-top: 1rem solid rgba(153, 153, 153, 0.4);
+            margin-top: 5rem;
+            margin-bottom: 15rem;
+
+            .dropdown-link {
+
+                .link-text {
+                    width: 100%;
+                    display: inline-block;
+                    margin: 0;
+                    padding: 5rem 5rem 5rem 0;
+                    font-weight: 600;
+                    transition: background-color 0.4s ease, padding-left 0.4s ease;
+
+                    &:hover {
+                        padding-left: 5rem;
+                        background-color: rgba(153, 153, 153, 0.15);
+                    }
+                }
+            }
+
+        }
+    }
+
+}
+
+
+
+.footer-category-container {
+    display: none;
+    margin-top: 20rem;
+
+    .collection-list-title {
+        font-family: 'Libre Franklin', sans-serif;
+        color: #666;
+        font-size: 10px;
+        line-height: 12px;
+        font-weight: 600;
+        text-align: left;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .collection-lists {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        & .collection-item {
+            display: inline;
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 14rem;
+            font-weight: 600;
+            line-height: 24rem;
+
+
+            margin: 8rem;
+
+            .link-text {
+                color: white;
+            }
+        }
+    }
+}
+
+
 /* #endregion FOOTER */
 
 
 /* #region FOOTER@mediaQuery */
 @media screen and (min-width: 479px) {
+    .button-container {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+
     .footer {}
 
     /* ALL RIGHTS RESERVED  */
@@ -503,6 +681,135 @@ a {
         .footer-logo-container {}
 
         .footer-small-text {}
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .top-post .post-h2 {
+        font-size: 36rem !important;
+        line-height: 42rem !important;
+    }
+
+
+    .posts.posts-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: space-between;
+        gap: 20rem;
+    }
+
+    .posts.posts-latest,
+    .posts.posts-featured {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-between;
+        gap: 20rem;
+    }
+
+}
+
+
+@media screen and (min-width: 767px) {
+    .category-dropdown {
+        display: none !important;
+    }
+
+    .footer-category-container {
+        display: block;
+    }
+
+}
+
+
+@media screen and (min-width: 992px) {
+
+    .top-navegation {
+        .navegation-burger-menu {
+            display: none;
+        }
+
+        .navegation-menu {
+            position: relative !important;
+            width: auto !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            visibility: visible !important;
+
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 40rem !important;
+
+            font-size: 14rem !important;
+            font-weight: 600 !important;
+
+        }
+    }
+
+    .post-item.top-post {
+
+        .post-container {
+            grid-template-columns: auto 40%;
+            gap: 40rem;
+
+            .post-text-container {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .posts.posts-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: space-between;
+        gap: 20rem;
+    }
+
+    .posts.posts-latest {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-content: space-between;
+        gap: 20rem;
+    }
+
+    .posts.posts-featured {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-between;
+        gap: 20rem;
+    }
+
+    .form {
+        grid-template: "category email" !important;
+        place-items: start !important;
+
+        .footer-category-container {
+            margin-top: 0;
+
+            .collection-lists {
+                .collection-item {
+                    margin: 0;
+                    margin-right: 12rem;
+                }
+            }
+        }
+
+        .form-subscribe-container {
+            display: grid;
+            grid-template-columns: 1fr;
+
+            margin-top: 24rem;
+            margin-bottom: 24rem;
+        }
+
+        .form-row-category {
+            justify-content: space-between;
+        }
+
+        .collection-lists {
+            margin-top: 24rem;
+            margin-bottom: 24rem;
+        }
     }
 
 }
